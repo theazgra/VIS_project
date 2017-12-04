@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<distillery>
+  <Customer_set>
+    <Customer>
+      <Id>0</Id>
+      <Name>Eliska</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>787454/5598</PersonalNumber>
+      <Phone>
+      </Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>25,5</DistilledVolume>
+      <RegistrationDate>24.11.2017 19:51:43</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>1. maje</Street>
+      <HouseNumber>25de</HouseNumber>
+      <City_Id>5</City_Id>
+    </Customer>
+  </Customer_set>
+  <District_set>
+    <District>
+      <Id>0</Id>
+      <Name>Opava</Name>
+    </District>
+  </District_set>
+  <Region_set>
+    <Region>
+      <Id>0</Id>
+      <Name>MSK</Name>
+    </Region>
+  </Region_set>
+  <City_set>
+    <City>
+      <Id>0</Id>
+      <Name>Strahovice</Name>
+      <ZipCode>74724</ZipCode>
+      <NameZip>Strahovice 74724</NameZip>
+      <District_Id>0</District_Id>
+      <Region_Id>0</Region_Id>
+    </City>
+  </City_set>
+</distillery>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<distillery>
+  <District_set>
+    <District>
+      <Id>0</Id>
+      <Name>Opava</Name>
+    </District>
+    <District>
+      <Id>1</Id>
+      <Name>Ostrava</Name>
+    </District>
+  </District_set>
+  <Region_set>
+    <Region>
+      <Id>0</Id>
+      <Name>MSK</Name>
+    </Region>
+    <Region>
+      <Id>1</Id>
+      <Name>Praha</Name>
+    </Region>
+  </Region_set>
+  <City_set>
+    <City>
+      <Id>0</Id>
+      <Name>6</Name>
+      <ZipCode>7</ZipCode>
+      <District_Id>1</District_Id>
+      <Region_Id>1</Region_Id>
+    </City>
+  </City_set>
+  <Customer_set>
+    <Customer>
+      <Id>0</Id>
+      <Name>3</Name>
+      <Surename>4</Surename>
+      <PersonalNumber>5</PersonalNumber>
+      <Phone>10</Phone>
+      <Email>11</Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>04.12.2017 18:48:38</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>8</Street>
+      <HouseNumber>9</HouseNumber>
+      <City_Id>0</City_Id>
+      <Login>1</Login>
+      <Password>2</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+  </Customer_set>
+</distillery>

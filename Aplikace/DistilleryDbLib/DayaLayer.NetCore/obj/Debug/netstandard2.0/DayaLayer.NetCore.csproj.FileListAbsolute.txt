@@ -1,0 +1,11 @@
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\bin\Debug\netstandard2.0\DayaLayer.NetCore.deps.json
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\bin\Debug\netstandard2.0\DayaLayer.NetCore.dll
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\bin\Debug\netstandard2.0\DayaLayer.NetCore.pdb
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.csprojResolveAssemblyReference.cache
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.csproj.CoreCompileInputs.cache
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.AssemblyInfoInputs.cache
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.AssemblyInfo.cs
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.dll
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.pdb
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.Properties.Resources.resources
+C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\DayaLayer.NetCore\obj\Debug\netstandard2.0\DayaLayer.NetCore.csproj.GenerateResource.Cache
