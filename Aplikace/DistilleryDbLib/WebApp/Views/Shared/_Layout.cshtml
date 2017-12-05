@@ -1,6 +1,4 @@
-﻿@model WebApp.Models.CustomerModel
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -17,7 +15,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Pálenice</a>
+        <a class="navbar-brand" href="@Url.Action("Index")">Pálenice</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,21 +23,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Nová rezervace</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Rezervace</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Nastavení <span class="sr-only">Nastavení</span></a>
-                </li>
-
                 @if (!(bool)ViewData["loggedIn"])
                 {
+                    
                     <li class="nav-item active">       
-                        <button type="button" onclick="location.href='@Url.Action("Registration", "Home")'" class="btn btn-primary" visible="@ViewData["newCustomer"]">Nový zákazník</button>
+                        <button type="button" onclick="location.href='@Url.Action("Registration", "Home")'" class="btn btn-primary" >Nový zákazník</button>
                     </li>
+                }
+                else
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("NewReservation", "Reservation")">Vytvořit novou rezervaci rezervace</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("ReservationList", "Reservation")">Moje rezervace</a>
+                    </li>
+
                 }
             </ul>
 
@@ -48,17 +47,24 @@
                           
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline my-2 my-lg-0" }))
                 {
-                    <input asp-for="Login" class="form-control mr-sm-2" type="text" placeholder="Login">
-                    <input asp-for="Password" class="form-control mr-sm-2" type="password" placeholder="Heslo">
+                    <input name="login" class="form-control mr-sm-2" type="text" placeholder="Login">
+                    <input name="password" class="form-control mr-sm-2" type="password" placeholder="Heslo">
                     <button name="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="logIn">Přihlásit</button>
                 }
             }
             else
             {
-                <label>Uživatel @Model.Login</label>
-                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline my-2 my-lg-0" }))
+                
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline" }))
                 {
-                    <button name="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="logOut">Odhlásit</button>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Uživatel @ViewData["userName"]">
+                        </div>
+                        <div class="col">
+                            <button name="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="logOut">Odhlásit</button>
+                        </div>
+                    </div>
                 }
             }
 

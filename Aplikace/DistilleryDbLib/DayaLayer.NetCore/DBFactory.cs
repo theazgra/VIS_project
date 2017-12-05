@@ -8,6 +8,9 @@ namespace DataLayerNetCore
 {
     public class DBFactory
     {
+        public static DBType configuredDbType = DBType.SqlServer;
+        public static string configuredConnectionString;
+
         public static IDatabase GetDatabase(DBType dBType, string connectionString)
         {
             switch (dBType)
@@ -21,3 +24,4 @@ namespace DataLayerNetCore
         }
     }
 }
+

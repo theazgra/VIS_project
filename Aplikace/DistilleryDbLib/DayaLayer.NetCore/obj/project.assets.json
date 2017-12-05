@@ -1903,11 +1903,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj",
+      "projectUniqueName": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj",
       "projectName": "DataLayerNetCore",
-      "projectPath": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj",
+      "projectPath": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj",
       "packagesPath": "C:\\Users\\Vojtěch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\obj\\",
+      "outputPath": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

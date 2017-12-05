@@ -4,31 +4,98 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
+using DistilleryLogic;
 
 namespace WebApp.Controllers
 {
     public class ReservationController : Controller
     {
-        private LoggedUser loggedUser;
+        private UserSession _userSession;
 
-        public ReservationController(LoggedUser user)
+        public ReservationController(UserSession userSession)
         {
-            this.loggedUser = user;
+            _userSession = userSession;
         }
 
         public IActionResult Index()
         {
+            
+            ShowLoggedUser();
             return View();
         }
 
-        
+        public IActionResult NewReservation()
+        {
+            ShowLoggedUser();
+
+            if (!_userSession.GetLoggedUser(HttpContext).LoggedIn)
+            {
+                ViewData["Warning"] = "Není přihlášen uživatel.";
+                return View("Warning");
+            }
+
+            ViewData["Materials"] = MaterialLogic.MaterialNames();
+            
+
+            return View(new ReservationForm() { RequstedDate = DateTime.Now });
+        }
+
+        [HttpPost]
         public IActionResult NewReservation(ReservationForm model, string returnUrl = null)
         {
-            ViewData["newCustomer"] = false;
+            ShowLoggedUser();
+            ViewData["Materials"] = MaterialLogic.MaterialNames();
 
-            if (model.RequstedDate == DateTime.MinValue)
-                model.RequstedDate = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                model.AvaibleDateTime = ReservationLogic.IsDateTimeAvaible(model.RequstedDate);
+
+                if (model.RequstedDate < DateTime.Now)
+                    model.AvaibleDateTime = false;
+
+                if (model.AvaibleDateTime)
+                {
+                    try
+                    {
+                        ReservationLogic.CreateReservation(
+                        _userSession.GetLoggedUser(HttpContext).User.Id,
+                        model.RequstedDate,
+                        model.Material,
+                        model.MaterialAmount);
+
+                        return RedirectToAction("ReservationList");
+                    }
+                    catch (DatabaseException e)
+                    {
+                        return View("Error", new ErrorViewModel() { RequestId = e.Message });
+                    }
+                    
+                }
+            }
+
+
             return View(model);
+        }
+
+        public IActionResult ReservationList()
+        {
+            ShowLoggedUser();
+            int customerId = _userSession.GetLoggedUser(HttpContext).User.Id;
+            ViewData["PendingReservations"] = ReservationLogic.PendingReservations(customerId);
+            ViewData["FinishedReservations"] = ReservationLogic.FinishedReservations(customerId);
+
+
+            return View();
+        }
+
+        private void ShowLoggedUser()
+        {
+            LoggedUser loggedUser = _userSession.GetLoggedUser(HttpContext);
+
+            ViewData["loggedIn"] = loggedUser.LoggedIn;
+
+            if (loggedUser.LoggedIn)
+                ViewData["userName"] = loggedUser.User.Login;
         }
 
     }

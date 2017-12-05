@@ -17,11 +17,14 @@ namespace DistilleryLogic
         {
             dbType = type;
             connectionString = connString;
+            DBFactory.configuredConnectionString = connString;
+            DBFactory.configuredDbType = type;
         }
 
         public static void SetDbConnectionType(DBType type)
         {
             dbType = type;
+            DBFactory.configuredDbType = type;
         }
     }
 }

@@ -129,6 +129,9 @@
   <data name="LoginMissing" xml:space="preserve">
     <value>Přihlašovací login musí být vyplněn.</value>
   </data>
+  <data name="MaterialAmountMissing" xml:space="preserve">
+    <value>Množství materiálu musí být vyplněno.</value>
+  </data>
   <data name="NameMissing" xml:space="preserve">
     <value>Jméno musí být veplněno.</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="PersonalNumberMissing" xml:space="preserve">
     <value>Rodné číslo musí být vyplněno.</value>
+  </data>
+  <data name="RequiredDateMissing" xml:space="preserve">
+    <value>Datum a čas pálení musí být vyplněno.</value>
   </data>
   <data name="SureNameMissing" xml:space="preserve">
     <value>Příjmení musí být vyplněno.</value>

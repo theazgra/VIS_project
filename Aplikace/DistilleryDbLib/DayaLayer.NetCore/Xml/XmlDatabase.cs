@@ -182,6 +182,19 @@ namespace DataLayerNetCore.Xml
             return result;
         }
 
+        public T Select<T>(T type, int primaryKey) where T : new()
+        {
+            string entitySet = GetEntitySetName(type);
+            if (!XmlSetExists(entitySet))
+                return default(T);
+
+            string query = entitySet + "/" + type.GetType().Name + "[Id=" + primaryKey.ToString() + "]";
+            XmlNode node = root.SelectSingleNode(query);
+
+            return ConstructObject(type, node);
+        }
+
+
         private T ConstructObject<T>(T type, XmlNode node) where T : new()
         {
             if (node == null)
@@ -210,18 +223,6 @@ namespace DataLayerNetCore.Xml
             return obj;
         }
 
-
-        public T Select<T>(T type, int primaryKey) where T : new()
-        {
-            string entitySet = GetEntitySetName(type);
-            if (!XmlSetExists(entitySet))
-                return default(T);
-
-            string query = entitySet + "/" + type.GetType().Name + "[Id=" + primaryKey.ToString() + "]";
-            XmlNode node = root.SelectSingleNode(query);
-
-            return ConstructObject(type, node);
-        }
 
         public int Delete<T>(T entity)
         {

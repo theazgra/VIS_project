@@ -7,30 +7,31 @@ using DistilleryLogic;
 
 namespace WebApp
 {
+    [Serializable]
     public class LoggedUser
     {
-        public bool LoggedIn { get; private set; }
-        public UserInfo User { get; private set; }
+        private UserInfo _user;
+        public bool LoggedIn { get; set; }
+
+        public UserInfo User
+        {
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                if (_user != null)
+                    _user.Password = string.Empty;
+            }
+        }
+
 
         public LoggedUser()
         {
             LoggedIn = false;
         }
 
-        public bool LogInUser(UserInfo userInfo)
-        {
-            if (LoginLogic.CorrectCredentials(userInfo.Login, userInfo.Password))
-            {
-                LoggedIn = true;
-                User = userInfo;
-                return true;
-            }
-            else
-            {
-                LoggedIn = false;
-                User = null;
-                return false;
-            }
-        }
     }
 }

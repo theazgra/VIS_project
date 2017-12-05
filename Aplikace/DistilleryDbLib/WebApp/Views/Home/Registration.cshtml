@@ -6,89 +6,95 @@
 
 @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
 {
-    <h4>Přihlašovací údaje</h4>
-    <br/>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="login">Login</label>
-            <input asp-for="Login" id="login" class="form-control sm-2" type="text" placeholder="Login">
-            @Html.ValidationMessageFor(m => m.Login)
-        </div>
-        <div class="form-group col-md-4">
-            <label for="login">Heslo</label>
-            <input asp-for="Password" id="password" class="form-control sm-2" type="password" placeholder="Heslo">
-            @Html.ValidationMessageFor(m => m.Password)
-        </div>
-    </div>
+    <div class="col-md-8">
+        <br/>
 
-    <h4>Základní údaje zákazníka</h4>
-    <br/>
+        <h4>Přihlašovací údaje</h4>
+        <br/>
 
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="name">Jméno</label>
-            <input asp-for="Name" id="name" class="form-control sm-2" type="text" placeholder="Jméno">
-            @Html.ValidationMessageFor(m => m.Name)
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="login">Login</label>
+                <input asp-for="Login" id="login" class="form-control sm-2" type="text" placeholder="Login">
+                @Html.ValidationMessageFor(m => m.Login)
+            </div>
+            <div class="form-group col-md-4">
+                <label for="login">Heslo</label>
+                <input asp-for="Password" id="password" class="form-control sm-2" type="password" placeholder="Heslo">
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
         </div>
-        <div class="form-group col-md-4">
-            <label for="surename">Příjmení</label>
-            <input asp-for="Surename" id="surename" class="form-control sm-2" type="text" placeholder="Příjmení">
-            @Html.ValidationMessageFor(m => m.Surename)
+
+        <h4>Základní údaje zákazníka</h4>
+        <br/>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="name">Jméno</label>
+                <input asp-for="Name" id="name" class="form-control sm-2" type="text" placeholder="Jméno">
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="form-group col-md-4">
+                <label for="surename">Příjmení</label>
+                <input asp-for="Surename" id="surename" class="form-control sm-2" type="text" placeholder="Příjmení">
+                @Html.ValidationMessageFor(m => m.Surename)
+            </div>
         </div>
-    </div>
 
 
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="pernum">Rodné číslo</label>
-            <input asp-for="PersonalNumber" id="pernum" class="form-control sm-2" type="text" placeholder="Rodné číslo">
-            @Html.ValidationMessageFor(m => m.PersonalNumber)
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="pernum">Rodné číslo</label>
+                <input asp-for="PersonalNumber" id="pernum" class="form-control sm-2" type="text" placeholder="Rodné číslo">
+                @Html.ValidationMessageFor(m => m.PersonalNumber)
+            </div>
         </div>
-    </div>
 
-    <h4>Adresa</h4>
-    <br/>
+        <h4>Adresa</h4>
+        <br/>
 
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="cityname">Obec</label>
-            <input asp-for="CityName" id="cityname" class="form-control sm-2" type="text" placeholder="Obec">
-            @Html.ValidationMessageFor(m => m.CityName)
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="cityname">Obec</label>
+                <input asp-for="CityName" id="cityname" class="form-control sm-2" type="text" placeholder="Obec">
+                @Html.ValidationMessageFor(m => m.CityName)
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cityzip">PSČ</label>
+                <input asp-for="CityZip" id="cityzip" class="form-control sm-2" type="text" placeholder="PSČ">
+                @Html.ValidationMessageFor(m => m.CityZip)
+            </div>
         </div>
-        <div class="form-group col-md-4">
-            <label for="cityzip">PSČ</label>
-            <input asp-for="CityZip" id="cityzip" class="form-control sm-2" type="text" placeholder="PSČ">
-            @Html.ValidationMessageFor(m => m.CityZip)
-        </div>
-    </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="street">Ulice</label>
-            <input asp-for="Street" id="street" class="form-control sm-2" type="text" placeholder="Ulice">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="street">Ulice</label>
+                <input asp-for="Street" id="street" class="form-control sm-2" type="text" placeholder="Ulice">
+            </div>
+        
+            <div class="form-group col-md-4">
+                <label for="houseNum">Číslo popisné</label>
+                <input asp-for="HouseNumber" id="houseNum" class="form-control sm-2" type="text" placeholder="Číslo popisné">
+                @Html.ValidationMessageFor(m => m.HouseNumber)
+            </div>
         </div>
+
+        <h4>Kontaktní údaje</h4>
+        <br/>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="phone">Telefonní číslo</label>
+                <input asp-for="Phone" id="phone" class="form-control sm-2" type="text" placeholder="Telefon">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="email">Email</label>
+                <input asp-for="Email" id="email" class="form-control sm-2" type="text" placeholder="Email">
+            </div>
+        </div>
+
     
-        <div class="form-group col-md-4">
-            <label for="houseNum">Číslo popisné</label>
-            <input asp-for="HouseNumber" id="houseNum" class="form-control sm-2" type="text" placeholder="Číslo popisné">
-            @Html.ValidationMessageFor(m => m.HouseNumber)
-        </div>
+        <button name="submit" class="btn btn-primary" type="submit">Registrovat</button>
     </div>
-
-    <h4>Kontaktní údaje</h4>
-    <br/>
-
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="phone">Telefonní číslo</label>
-            <input asp-for="Phone" id="phone" class="form-control sm-2" type="text" placeholder="Telefon">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="email">Email</label>
-            <input asp-for="Email" id="email" class="form-control sm-2" type="text" placeholder="Email">
-        </div>
-    </div>
-
-    <button name="submit" class="btn btn-primary" type="submit">Registrovat</button>
 }
 

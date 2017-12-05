@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "ReservationList";
+}
+                                                 
+<div class="col-sm-12">
+    <h2>Seznam rezervací</h2>
+
+    <h4>Čekající rezervace</h4>
+    @if(((ICollection<DataLayerNetCore.Entities.Reservation>)ViewData["PendingReservations"]).Count > 0)
+    {
+        <ul class="list-group col-sm-4">
+        @foreach (DataLayerNetCore.Entities.Reservation r in (ICollection<DataLayerNetCore.Entities.Reservation>)ViewData["PendingReservations"])
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Datum: @r.RequestedDateTime.ToString()      Materiál: @r.Material.Name
+                <span class="badge badge-primary badge-pill">@r.MaterialAmount</span>
+            </li>
+        }
+        </ul>    
+    }
+    else
+    {
+        <p>Nejsou žádné čekající rezervace.</p>
+    }
+    
+
+    <h4>Proběhlé rezervace</h4>
+    
+    @if(((ICollection<DataLayerNetCore.Entities.Reservation>)ViewData["FinishedReservations"]).Count > 0)
+    {
+        <ul class="list-group col-sm-4">
+        @foreach (DataLayerNetCore.Entities.Reservation r in (ICollection<DataLayerNetCore.Entities.Reservation>)ViewData["FinishedReservations"])
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Datum: @r.RequestedDateTime.ToString()      Materiál: @r.Material.Name
+                <span class="badge badge-primary badge-pill">@r.MaterialAmount</span>
+            </li>
+        }    
+        </ul>
+    }
+    else
+    {
+        <p>Nejsou žádné proběhlé rezervace.</p>
+    }
+        
+    
+
+</div>
+

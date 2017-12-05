@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+using DataLayerNetCore.Entities;
 
 namespace WebApp
 {
@@ -17,7 +19,7 @@ namespace WebApp
 
             DistilleryLogic.Configuration.SetDbConnection(
                 DataLayerNetCore.DBType.XmlDatabase,
-                @"C:\Users\Vojtěch\Disk Google\vsb\VIS\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
+                @"C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
 
             //DistilleryLogic.Configuration.SetDbConnection(
             //    DataLayerNetCore.DBType.SqlServer,
@@ -29,10 +31,12 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddScoped<LoggedUser>();
+            services.AddMvc()
+                .AddSessionStateTempDataProvider();
 
-            
+            services.AddSession();
+
+            services.AddSingleton<UserSession>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +53,8 @@ namespace WebApp
             }
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

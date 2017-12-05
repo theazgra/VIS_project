@@ -97,6 +97,15 @@ namespace WebApp {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Množství materiálu musí být vyplněno..
+        /// </summary>
+        internal static string MaterialAmountMissing {
+            get {
+                return ResourceManager.GetString("MaterialAmountMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jméno musí být veplněno..
         /// </summary>
         internal static string NameMissing {
@@ -120,6 +129,15 @@ namespace WebApp {
         internal static string PersonalNumberMissing {
             get {
                 return ResourceManager.GetString("PersonalNumberMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum a čas pálení musí být vyplněno..
+        /// </summary>
+        internal static string RequiredDateMissing {
+            get {
+                return ResourceManager.GetString("RequiredDateMissing", resourceCulture);
             }
         }
         

@@ -28,6 +28,13 @@
       <District_Id>1</District_Id>
       <Region_Id>1</Region_Id>
     </City>
+    <City>
+      <Id>1</Id>
+      <Name>strahovice</Name>
+      <ZipCode>747355</ZipCode>
+      <District_Id>1</District_Id>
+      <Region_Id>1</Region_Id>
+    </City>
   </City_set>
   <Customer_set>
     <Customer>
@@ -48,5 +55,56 @@
       <Password>2</Password>
       <UserLevel>3</UserLevel>
     </Customer>
+    <Customer>
+      <Id>1</Id>
+      <Name>vojta</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>787845/7878</PersonalNumber>
+      <Phone>555848665</Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>56565</Street>
+      <HouseNumber>4564</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>vojta</Login>
+      <Password>vojta</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
   </Customer_set>
+  <Material_set>
+    <Material>
+      <Id>0</Id>
+      <Name>Hruška</Name>
+    </Material>
+    <Material>
+      <Id>1</Id>
+      <Name>Švestka</Name>
+    </Material>
+    <Material>
+      <Id>2</Id>
+      <Name>Jablko</Name>
+    </Material>
+    <Material>
+      <Id>3</Id>
+      <Name>Meruňka</Name>
+    </Material>
+    <Material>
+      <Id>4</Id>
+      <Name>Třešeň</Name>
+    </Material>
+  </Material_set>
+  <Reservation_set>
+    <Reservation>
+      <Id>0</Id>
+      <MaterialAmount>25</MaterialAmount>
+      <RequestedDateTime>06.12.2017 13:24:41</RequestedDateTime>
+      <ReservationDateTime>05.12.2017 13:25:23</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>0</Material_Id>
+    </Reservation>
+  </Reservation_set>
 </distillery>

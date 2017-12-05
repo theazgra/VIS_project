@@ -5,84 +5,130 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
 using DistilleryLogic;
+using Microsoft.AspNetCore.Identity;
+using DataLayerNetCore.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private LoggedUser loggedUser;
+        private UserSession _userSession;
 
-        public HomeController(LoggedUser user)
+        public HomeController(UserSession session)
         {
-            loggedUser = user;
-            ViewData["loggedIn"] = loggedUser.LoggedIn;
+            _userSession = session;
         }
 
-        public IActionResult Index(CustomerModel model, string submit)
+        public IActionResult Index()
+        { 
+            ShowLoggedUser();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(string login, string password, string submit)
         {
-
-            LoginCustomer(model);
-
             if (submit == "logOut")
                 LogOutCustomer();
+            else
+                LoginCustomer(login, password);
 
-
-            return View(model);
-
+            return View();
         }
 
         public IActionResult Registration()
         {
-            ViewData["loggedIn"] = loggedUser.LoggedIn;
+            ShowLoggedUser();
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Registration(RegistrationForm model)
         {
-            ViewData["loggedIn"] = loggedUser.LoggedIn;
+            ShowLoggedUser();
+
             if (ModelState.IsValid)
-            {
-                CustomerLogic.CreateCustomer(new DataLayerNetCore.Entities.Customer
+            { 
+                try
                 {
-                    Login = model.Login,
-                    Password = model.Password,
-                    Name = model.Name,
-                    Surename = model.Surename,
-                    PersonalNumber = model.PersonalNumber,
-                    City = new DataLayerNetCore.Entities.City
+                    CustomerLogic.CreateCustomer(new DataLayerNetCore.Entities.Customer
                     {
-                        Name = model.CityName,
-                        ZipCode = model.CityZip
-                    },
-                    Street = model.Street,
-                    HouseNumber = model.HouseNumber,
-                    Phone = model.Phone,
-                    Email = model.Email
-                });
+                        Login = model.Login,
+                        Password = model.Password,
+                        Name = model.Name,
+                        Surename = model.Surename,
+                        PersonalNumber = model.PersonalNumber,
+                        City = new DataLayerNetCore.Entities.City
+                        {
+                            Name = model.CityName,
+                            ZipCode = model.CityZip
+                        },
+                        Street = model.Street,
+                        HouseNumber = model.HouseNumber,
+                        Phone = model.Phone,
+                        Email = model.Email
+                    });
+                }
+                catch (DatabaseException e)
+                {
+                    return View("Error", new ErrorViewModel { RequestId = e.Message });
+                }
 
-
-
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("RegistrationCompleted", "Home", new { result = "OK" });
             }
             return View(model);
         }
 
+        public IActionResult RegistrationCompleted(string result)
+        {
+            if (result != "OK")
+            {
+                ShowLoggedUser();
+                return View("Error", new ErrorViewModel { RequestId = "RegCompletedNotAvaible" });
+            }
+
+
+            ShowLoggedUser();
+            return View();
+        }
+
+        private void ShowLoggedUser()
+        {
+             LoggedUser loggedUser = _userSession.GetLoggedUser(HttpContext);
+
+            ViewData["loggedIn"] = loggedUser.LoggedIn;
+
+            if (loggedUser.LoggedIn)
+                ViewData["userName"] = loggedUser.User.Login;
+        }
+
         private void LogOutCustomer()
         {
-            //ViewData["loggedIn"] = false;
+            LoggedUser loggedUser = new LoggedUser
+            {
+                LoggedIn = false,
+                User = null
+            };
+            _userSession.SetLoggedUser(HttpContext, loggedUser);
             ViewData["loggedIn"] = loggedUser.LoggedIn;
         }
 
-        private void LoginCustomer(CustomerModel model)
+        private void LoginCustomer(string login, string password)
         {
-            bool loggedIn = LoginLogic.CorrectCredentials(model.Login, model.Password);
+            if (LoginLogic.Login(login, password) is DataLayerNetCore.Entities.UserInfo user)
+            {
+                LoggedUser loggedUser = new LoggedUser
+                {
+                    User = user,
+                    LoggedIn = true
+                };
 
-            //ViewData["loggedIn"] = loggedIn;
-            ViewData["loggedIn"] = loggedUser.LoggedIn;
+                _userSession.SetLoggedUser(HttpContext, loggedUser);
+            }
 
-            if (loggedIn)
-                ViewData["customer"] = model.Login;
+            ShowLoggedUser();
         }
     }
 }

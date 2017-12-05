@@ -2121,11 +2121,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DistilleryLogic\\DistilleryLogic.csproj",
+      "projectUniqueName": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DistilleryLogic\\DistilleryLogic.csproj",
       "projectName": "DistilleryLogic",
-      "projectPath": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DistilleryLogic\\DistilleryLogic.csproj",
+      "projectPath": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DistilleryLogic\\DistilleryLogic.csproj",
       "packagesPath": "C:\\Users\\Vojtěch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DistilleryLogic\\obj\\",
+      "outputPath": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DistilleryLogic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2144,8 +2144,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj": {
-              "projectPath": "C:\\Users\\Vojtěch\\Disk Google\\vsb\\VIS\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj"
+            "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj": {
+              "projectPath": "C:\\Users\\Vojtěch\\Source\\Repos\\VIS_projekt\\Aplikace\\DistilleryDbLib\\DayaLayer.NetCore\\DataLayerNetCore.csproj"
             }
           }
         }

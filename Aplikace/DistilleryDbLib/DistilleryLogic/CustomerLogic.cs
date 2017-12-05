@@ -11,40 +11,41 @@ namespace DistilleryLogic
     {
         public static Customer CreateCustomer(Customer newCustomer)
         {
-            newCustomer.RegistrationDate = DateTime.Now;
-            newCustomer.DistilledVolume = 0;
-            newCustomer.UserLevel = Customer.Customer;
-
-            IDatabase db = Configuration.GetDatabase();
-
-            if (db.SelectAll(new City()).Count(c => c.Name == newCustomer.City.Name && c.ZipCode == newCustomer.City.ZipCode) > 0)
-            {
-                newCustomer.City_Id = db.SelectAll(new City()).Where(c => c.Name == newCustomer.City.Name && c.ZipCode == newCustomer.City.ZipCode).First().Id;
-            }
-            else
-            {
-                db.Insert(new City
-                {
-                    Name = newCustomer.City.Name,
-                    ZipCode = newCustomer.City.ZipCode,
-                    District_Id = 1,
-                    Region_Id = 1
-                });
-
-                newCustomer.City_Id = db.SelectAll(new City()).Max(c => c.Id);
-            }
-
             try
             {
+                newCustomer.RegistrationDate = DateTime.Now;
+                newCustomer.DistilledVolume = 0;
+                newCustomer.UserLevel = Customer.Customer;
+
+                IDatabase db = Configuration.GetDatabase();
+
+                if (db.SelectAll(new City()).Count(c => c.Name == newCustomer.City.Name && c.ZipCode == newCustomer.City.ZipCode) > 0)
+                {
+                    newCustomer.City_Id = db.SelectAll(new City()).Where(c => c.Name == newCustomer.City.Name && c.ZipCode == newCustomer.City.ZipCode).First().Id;
+                }
+                else
+                {
+                    db.Insert(new City
+                    {
+                        Name = newCustomer.City.Name,
+                        ZipCode = newCustomer.City.ZipCode,
+                        District_Id = 1,
+                        Region_Id = 1
+                    });
+
+                    newCustomer.City_Id = db.SelectAll(new City()).Max(c => c.Id);
+                }
+
                 db.Insert(newCustomer);
+              
+
+                return newCustomer;
             }
             catch (Exception e)
             {
 
-                throw;
+                throw new DatabaseException(e.Message, e);
             }
-            
-            return newCustomer;
         }
     }
 }

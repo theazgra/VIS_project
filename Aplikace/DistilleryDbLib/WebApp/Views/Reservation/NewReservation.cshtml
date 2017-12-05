@@ -7,30 +7,44 @@
 {
     @Html.ValidationSummary(true);
 
+    <div class="col-sm-12">
+        
+        <h4>Nová rezervace</h4>
 
-    <div class="form-group">
-        <label asp-for="RequstedDate" class="form-group">Požadované datum</label>
-        <input asp-for="RequstedDate" class="form-control" type="datetime-local"/>
+        <div class="form-row col-sm-4">
+            <label for="date">Požadované datum pálení</label>
+            <input asp-for="RequstedDate" id="date" class="form-control sm-2" type="datetime-local"/>
+            @Html.ValidationMessageFor(m => m.RequstedDate)
+        </div>
+
+        <div class="form-row col-sm-4">
+            @if(!Model.AvaibleDateTime)
+            {
+                <p><b>Požadované datum již není k dispozici</b></p>
+            }
+        </div>
+
+        <div class="form-row col-sm-4">
+            <label for="material">Materiál</label>
+            <select class="form-control sm-2" id="material" asp-for="Material">
+                @foreach (string m in (ICollection<String>)ViewData["Materials"])
+                {
+                    <option>@m</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-row col-sm-4">
+            <label for="amount">Množství materiálu v Kg</label>
+            <input asp-for="MaterialAmount" id="amount" class="form-control sm-2" type="number" placeholder="Množství materiálu"/>
+            @Html.ValidationMessageFor(m => m.MaterialAmount)
+        </div>
+
+        <br/>
+
+        
+        <button type="submit" class="btn btn-primary">Rezervovat</button>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Material">Materiál</label>
-        <select class="form-control" asp-for="Material">
-            <option>Švestka</option>
-            <option>Hruška</option>
-            <option>Třešen</option>
-            <option>Jablko</option>
-            <option>Meruňka</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="MaterialAmount">Množství materiálu</label>
-        <input asp-for="MaterialAmount" class="form-control" type="number" placeholder="Množství materiálu"/>
-    </div>
-
-
-    <button type="submit" class="btn btn-primary">Rezervovat</button>
 
 }
 
