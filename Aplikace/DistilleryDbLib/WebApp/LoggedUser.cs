@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataLayerNetCore.Entities;
 using DistilleryLogic;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace WebApp
 {
@@ -27,10 +28,19 @@ namespace WebApp
             }
         }
 
-
         public LoggedUser()
         {
             LoggedIn = false;
+        }
+
+        internal void SetViewData(ViewDataDictionary viewData)
+        {
+            viewData["loggedIn"] = LoggedIn;
+            if (LoggedIn)
+            {
+                viewData["userName"] = User.Login;
+                viewData["userLevel"] = User.UserLevel;
+            }
         }
 
     }

@@ -8,23 +8,23 @@ namespace DataLayerNetCore.SqlAdapters
     public class CustomerTable
     {
         private static string SQL_INSERT =  "INSERT INTO Customer " +
-                                            "(name, surename, personalNumber, phone, email, registrationDate, note, City_Id, street, houseNumber, login, password) " +
-                                            "VALUES (@name, @surename, @personalNumber, @phone, @email, @registrationDate, @note, @City_Id, @street, @houseNumber, @login, @password) ";
+                                            "(name, surename, personalNumber, phone, email, registrationDate, note, City_Id, street, houseNumber, login, password, userlevel) " +
+                                            "VALUES (@name, @surename, @personalNumber, @phone, @email, @registrationDate, @note, @City_Id, @street, @houseNumber, @login, @password, @userlevel) ";
         private static string SQL_SELECT = "SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, c.registrationDate, c.note, " +
-                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password " +
+                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password, c.userlevel " +
                                             "FROM Customer c " +
                                             "JOIN City city ON city.Id = c.City_Id " + 
                                             "JOIN District d ON d.Id = city.District_Id " +
                                             "JOIN Region r ON r.Id = city.Region_Id ";
         private static string SQL_SELECT_ID ="SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, c.registrationDate, c.note, " +
-                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password " +
+                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password, c.userlevel " +
                                             "FROM Customer c " +
                                             "JOIN City city ON city.Id = c.City_Id " +
                                             "JOIN District d ON d.Id = city.District_Id " +
                                             "JOIN Region r ON r.Id = city.Region_Id " +
                                             "WHERE c.ID = @Id" ;
         private static string SQL_SELECT_BY_SURENAME = "SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, c.registrationDate, c.note, " +
-                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password " +
+                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password, c.userlevel " +
                                             "FROM Customer c " +
                                             "JOIN City city ON city.Id = c.City_Id " +
                                             "JOIN District d ON d.Id = city.District_Id " +
@@ -33,7 +33,7 @@ namespace DataLayerNetCore.SqlAdapters
 
         private static string SQL_UPDATE =  "UPDATE Customer " +
                                             "SET name = @name, surename = @surename, personalNumber = @personalNumber, phone = @phone, email = @email, "+
-                                            "distilledVolume = @distilledVolume, registrationDate = @registrationDate, note = @note, City_Id = @City_Id, street = @street, houseNumber = @houseNumber, login = @login, password = @password " +
+                                            "distilledVolume = @distilledVolume, registrationDate = @registrationDate, note = @note, City_Id = @City_Id, street = @street, houseNumber = @houseNumber, login = @login, password = @password, userlevel = @userlevel " +
                                             "WHERE Id = @Id";
         private static string SQL_DELETE = "DELETE FROM Customer WHERE Id = @Id";
 
@@ -168,6 +168,7 @@ namespace DataLayerNetCore.SqlAdapters
                 };
                 c.Login = reader.GetString(++i);
                 c.Password = reader.GetString(++i);
+                c.UserLevel = reader.GetInt32(++i);
                 customers.Add(c);
             }
             return customers;
@@ -189,6 +190,7 @@ namespace DataLayerNetCore.SqlAdapters
             sqlCom.Parameters.AddWithValue("@houseNumber", customer.HouseNumber);
             sqlCom.Parameters.AddWithValue("@login", customer.Login);
             sqlCom.Parameters.AddWithValue("@password", customer.Password);
+            sqlCom.Parameters.AddWithValue("@userlevel", customer.UserLevel);
 
             if (customer.Email == null)
             {

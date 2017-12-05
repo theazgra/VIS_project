@@ -22,7 +22,7 @@ namespace DistilleryLogic
                     Id = cc.Id,
                     Login = cc.Login,
                     Password = cc.Password,
-                    UserLevel = UserInfo.Customer
+                    UserLevel = cc.UserLevel
                 };
             }
             catch (Exception)

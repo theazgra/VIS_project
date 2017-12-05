@@ -15,7 +15,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="@Url.Action("Index")">Pálenice</a>
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">Pálenice</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,19 +32,41 @@
                 }
                 else
                 {
-                    <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("NewReservation", "Reservation")">Vytvořit novou rezervaci rezervace</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="@Url.Action("ReservationList", "Reservation")">Moje rezervace</a>
-                    </li>
-
+                    switch((int)ViewData["userLevel"])
+                    {
+                        case DataLayerNetCore.Entities.UserInfo.Employee: 
+                            {
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="@Url.Action("ReservationList", "Administration")">Přehled rezervací</a>
+                                </li>
+                                break;   
+                            }
+                        case DataLayerNetCore.Entities.UserInfo.Administrator:
+                            {
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="@Url.Action("ReservationList", "Administration")">Přehled rezervací</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="@Url.Action("UserSettings", "Administration")">Přehled uživatelů</a>
+                                </li>
+                                break;
+                            }
+                        default: 
+                            {
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="@Url.Action("NewReservation", "Reservation")">Vytvořit novou rezervaci rezervace</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="@Url.Action("ReservationList", "Reservation")">Moje rezervace</a>
+                                </li>
+                                break;
+                            }
+                    }
                 }
             </ul>
 
             @if (!(bool)ViewData["loggedIn"])
             {
-                          
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline my-2 my-lg-0" }))
                 {
                     <input name="login" class="form-control mr-sm-2" type="text" placeholder="Login">
@@ -54,12 +76,18 @@
             }
             else
             {
-                
+                string namePrefix = "Uživatel";
+                switch ((int)ViewData["userLevel"]) {
+                    case DataLayerNetCore.Entities.UserInfo.Employee: namePrefix = "Zaměstnanec"; break;
+                    case DataLayerNetCore.Entities.UserInfo.Administrator: namePrefix = "Administrátor"; break;
+                    default: namePrefix = "Uživatel"; break;
+                }
+
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline" }))
                 {
                     <div class="row">
                         <div class="col">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Uživatel @ViewData["userName"]">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="@namePrefix @ViewData["userName"]">
                         </div>
                         <div class="col">
                             <button name="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit" value="logOut">Odhlásit</button>

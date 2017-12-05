@@ -46,8 +46,7 @@
       <Email>11</Email>
       <DistilledVolume>0</DistilledVolume>
       <RegistrationDate>04.12.2017 18:48:38</RegistrationDate>
-      <Note>
-      </Note>
+      <Note></Note>
       <Street>8</Street>
       <HouseNumber>9</HouseNumber>
       <City_Id>0</City_Id>
@@ -61,18 +60,16 @@
       <Surename>moravec</Surename>
       <PersonalNumber>787845/7878</PersonalNumber>
       <Phone>555848665</Phone>
-      <Email>
-      </Email>
+      <Email></Email>
       <DistilledVolume>0</DistilledVolume>
       <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
-      <Note>
-      </Note>
+      <Note></Note>
       <Street>56565</Street>
       <HouseNumber>4564</HouseNumber>
       <City_Id>1</City_Id>
       <Login>vojta</Login>
       <Password>vojta</Password>
-      <UserLevel>3</UserLevel>
+      <UserLevel>2</UserLevel>
     </Customer>
   </Customer_set>
   <Material_set>
