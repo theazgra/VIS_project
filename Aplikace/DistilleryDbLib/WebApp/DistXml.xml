@@ -46,7 +46,8 @@
       <Email>11</Email>
       <DistilledVolume>0</DistilledVolume>
       <RegistrationDate>04.12.2017 18:48:38</RegistrationDate>
-      <Note></Note>
+      <Note>
+      </Note>
       <Street>8</Street>
       <HouseNumber>9</HouseNumber>
       <City_Id>0</City_Id>
@@ -60,16 +61,18 @@
       <Surename>moravec</Surename>
       <PersonalNumber>787845/7878</PersonalNumber>
       <Phone>555848665</Phone>
-      <Email></Email>
+      <Email>
+      </Email>
       <DistilledVolume>0</DistilledVolume>
       <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
-      <Note></Note>
+      <Note>
+      </Note>
       <Street>56565</Street>
       <HouseNumber>4564</HouseNumber>
       <City_Id>1</City_Id>
       <Login>vojta</Login>
       <Password>vojta</Password>
-      <UserLevel>2</UserLevel>
+      <UserLevel>3</UserLevel>
     </Customer>
   </Customer_set>
   <Material_set>
@@ -102,6 +105,14 @@
       <ReservationDateTime>05.12.2017 13:25:23</ReservationDateTime>
       <Customer_Id>1</Customer_Id>
       <Material_Id>0</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>1</Id>
+      <MaterialAmount>4</MaterialAmount>
+      <RequestedDateTime>07.12.2017 10:33:52</RequestedDateTime>
+      <ReservationDateTime>06.12.2017 10:34:21</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>2</Material_Id>
     </Reservation>
   </Reservation_set>
 </distillery>

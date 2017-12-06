@@ -91,11 +91,7 @@ namespace WebApp.Controllers
         private void ShowLoggedUser()
         {
             LoggedUser loggedUser = _userSession.GetLoggedUser(HttpContext);
-
-            ViewData["loggedIn"] = loggedUser.LoggedIn;
-
-            if (loggedUser.LoggedIn)
-                ViewData["userName"] = loggedUser.User.Login;
+            loggedUser.SetViewData(ViewData);
         }
 
     }
