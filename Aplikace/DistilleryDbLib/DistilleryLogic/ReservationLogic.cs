@@ -2,6 +2,7 @@
 using DataLayerNetCore.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -65,6 +66,31 @@ namespace DistilleryLogic
             return db.SelectAll(
                 new Reservation())
                 .Where(r => r.Customer_Id == customerId && r.RequestedDateTime > DateTime.Now).ToList();
+        }
+
+        public static IDictionary<DateTime, ICollection<Reservation>> GetReservationByDayInPeriod(DateTime dateFrom, DateTime dateTo)
+        {
+            IDatabase db = Configuration.GetDatabase();
+
+            IEnumerable<Reservation> reservations = db.SelectAll(new Reservation())
+                .Where(r => r.RequestedDateTime >= dateFrom && r.RequestedDateTime <= dateTo);
+
+            IDictionary<DateTime, ICollection<Reservation>> result = new Dictionary<DateTime, ICollection<Reservation>>();
+
+            foreach (Reservation r in reservations)
+            {
+                if (result.ContainsKey(r.RequestedDateTime.Date))
+                {
+                    result[r.RequestedDateTime.Date].Add(r);
+                }
+                else
+                {
+                    result.Add(r.RequestedDateTime.Date, new List<Reservation>());
+                    result[r.RequestedDateTime.Date].Add(r);
+                }
+            }
+
+            return result;
         }
     }
 }

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "ReservationList";
+}
+<div class="col-sm-12">
+    <h3>Seznam rezervací</h3>
+    @{
+        IDictionary<DateTime, ICollection<DataLayerNetCore.Entities.Reservation>> values = (IDictionary<DateTime, ICollection<DataLayerNetCore.Entities.Reservation>>)ViewData["reservationDic"];
+    }
+
+    @if (values.Count > 0)
+    {
+
+        @foreach (DateTime date in values.Keys)
+        {
+            <h4>@date.ToShortDateString()</h4>
+            <ul class="list-group col-sm-4">
+                @foreach (DataLayerNetCore.Entities.Reservation r in values[date])
+                {
+                    <li class="list-group-item">@r.Customer.City.Name</li>
+                }
+            </ul>
+        }
+    }
+    else
+    {
+        <p> Nejsou žádné čekající rezervace.</p>
+    }
+</div>

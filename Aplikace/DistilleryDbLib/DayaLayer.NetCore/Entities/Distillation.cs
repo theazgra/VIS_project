@@ -4,6 +4,11 @@ namespace DataLayerNetCore.Entities
 {
     public class Distillation
     {
+        private Customer _customer;
+        private Material _material;
+        private Season _season;
+        private Period _period;
+
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public DateTime StartTime { get; set; }
@@ -16,16 +21,72 @@ namespace DataLayerNetCore.Entities
         public bool Payed { get; set; }
 
         [Xml.XmlIgnore]
-        public Customer Customer { get; set; }
+        public Customer Customer
+        {
+            set
+            {
+                _customer = value;
+            }
+            get
+            {
+                if (_customer == null)
+                {
+                    _customer = DBFactory.Configured().Select(new Customer(), Customer_Id);
+                }
+                return _customer;
+            }
+        }
 
         [Xml.XmlIgnore]
-        public Material Material { get; set; }
+        public Material Material
+        {
+            set
+            {
+                _material = value;
+            }
+            get
+            {
+                if (_material == null)
+                {
+                    _material = DBFactory.Configured().Select(new Material(), Material_Id);
+                }
+                return _material;
+            }
+        }
 
         [Xml.XmlIgnore]
-        public Season Season { get; set; }
+        public Season Season
+        {
+            set
+            {
+                _season = value;
+            }
+            get
+            {
+                if (_season == null)
+                {
+                    _season = DBFactory.Configured().Select(new Season(), Season_Id);
+                }
+                return _season;
+            }
+        }
 
         [Xml.XmlIgnore]
-        public Period Period { get; set; }
+        public Period Period
+        {
+            set
+            {
+                _period = value;
+            }
+            get
+            {
+                if (_period == null)
+                {
+                    _period = DBFactory.Configured().Select(new Period(), Period_Id);
+                }
+                return _period;
+            }
+        }
 
 
         [ForeignKey(typeof(Customer), "Id")]

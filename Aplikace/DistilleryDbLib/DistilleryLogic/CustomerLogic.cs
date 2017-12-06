@@ -9,6 +9,38 @@ namespace DistilleryLogic
 {
     public class CustomerLogic
     {
+        public static bool GoodPersonalNumber(string personalNumber)
+        {
+            if (string.IsNullOrEmpty(personalNumber))
+                return false;
+            //check age
+            if (!personalNumber.Contains("/"))
+                return false;
+
+            personalNumber =  personalNumber.Replace("/", string.Empty);
+
+            if (!long.TryParse(personalNumber, out long pnValue))
+                return false;
+
+            if (pnValue % 11 != 0)
+                return false;
+
+            return true;
+        }
+
+        public static bool LoginAvaible(string login)
+        {
+
+            IDatabase db = Configuration.GetDatabase();
+
+            if (db.SelectAll(new Customer()).Count(c => c.Login == login) > 0)
+                return false;
+            if (db.SelectAll(new UserInfo()).Count(u => u.Login == login) > 0)
+                return false;
+
+            return true;
+        }
+
         public static Customer CreateCustomer(Customer newCustomer)
         {
             try

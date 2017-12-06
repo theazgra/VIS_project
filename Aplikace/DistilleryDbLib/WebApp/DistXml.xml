@@ -35,24 +35,32 @@
       <District_Id>1</District_Id>
       <Region_Id>1</Region_Id>
     </City>
+    <City>
+      <Id>2</Id>
+      <Name>Strahovice</Name>
+      <ZipCode>74724</ZipCode>
+      <District_Id>1</District_Id>
+      <Region_Id>1</Region_Id>
+    </City>
   </City_set>
   <Customer_set>
     <Customer>
-      <Id>0</Id>
-      <Name>3</Name>
-      <Surename>4</Surename>
-      <PersonalNumber>5</PersonalNumber>
-      <Phone>10</Phone>
-      <Email>11</Email>
+      <Id>1</Id>
+      <Name>vojta</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>787845/7878</PersonalNumber>
+      <Phone>555848665</Phone>
+      <Email>
+      </Email>
       <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>04.12.2017 18:48:38</RegistrationDate>
+      <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
       <Note>
       </Note>
-      <Street>8</Street>
-      <HouseNumber>9</HouseNumber>
-      <City_Id>0</City_Id>
-      <Login>1</Login>
-      <Password>2</Password>
+      <Street>56565</Street>
+      <HouseNumber>4564</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>customer</Login>
+      <Password>customer</Password>
       <UserLevel>3</UserLevel>
     </Customer>
     <Customer>
@@ -70,8 +78,45 @@
       <Street>56565</Street>
       <HouseNumber>4564</HouseNumber>
       <City_Id>1</City_Id>
-      <Login>vojta</Login>
-      <Password>vojta</Password>
+      <Login>employee</Login>
+      <Password>employee</Password>
+      <UserLevel>2</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>1</Id>
+      <Name>vojta</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>787845/7878</PersonalNumber>
+      <Phone>555848665</Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>56565</Street>
+      <HouseNumber>4564</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>admin</Login>
+      <Password>admin</Password>
+      <UserLevel>1</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>2</Id>
+      <Name>Vojtěch</Name>
+      <Surename>Moravec</Surename>
+      <PersonalNumber>960509/5951</PersonalNumber>
+      <Phone>605914980</Phone>
+      <Email>theazgra@gmail.com</Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>06.12.2017 13:57:41</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>Strahovice 157</Street>
+      <HouseNumber>Strahovice 157</HouseNumber>
+      <City_Id>2</City_Id>
+      <Login>administratir</Login>
+      <Password>jyjuju</Password>
       <UserLevel>3</UserLevel>
     </Customer>
   </Customer_set>
@@ -111,6 +156,14 @@
       <MaterialAmount>4</MaterialAmount>
       <RequestedDateTime>07.12.2017 10:33:52</RequestedDateTime>
       <ReservationDateTime>06.12.2017 10:34:21</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>2</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>2</Id>
+      <MaterialAmount>4</MaterialAmount>
+      <RequestedDateTime>06.12.2017 18:17:15</RequestedDateTime>
+      <ReservationDateTime>06.12.2017 14:17:26</ReservationDateTime>
       <Customer_Id>1</Customer_Id>
       <Material_Id>2</Material_Id>
     </Reservation>

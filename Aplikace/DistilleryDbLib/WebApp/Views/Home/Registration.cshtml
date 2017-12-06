@@ -17,6 +17,10 @@
                 <label for="login">Login</label>
                 <input asp-for="Login" id="login" class="form-control sm-2" type="text" placeholder="Login">
                 @Html.ValidationMessageFor(m => m.Login)
+                @if(Model != null && !Model.LoginAvaible)
+                {
+                    <p><b>Daný login není k dispozici.</b></p>
+                }
             </div>
             <div class="form-group col-md-4">
                 <label for="login">Heslo</label>
@@ -27,6 +31,13 @@
 
         <h4>Základní údaje zákazníka</h4>
         <br/>
+
+        <!-- <div class="form-row col-md-4">
+            
+        </div>
+        <div class="form-row col-md-4">
+            
+        </div> -->
 
         <div class="form-row">
             <div class="form-group col-md-4">
@@ -47,6 +58,10 @@
                 <label for="pernum">Rodné číslo</label>
                 <input asp-for="PersonalNumber" id="pernum" class="form-control sm-2" type="text" placeholder="Rodné číslo">
                 @Html.ValidationMessageFor(m => m.PersonalNumber)
+                @if(Model != null && !Model.GoodPersonalNumber)
+                {
+                    <p><b>Nesprávné nebo duplicitní rodné číslo.</b></p>
+                }
             </div>
         </div>
 

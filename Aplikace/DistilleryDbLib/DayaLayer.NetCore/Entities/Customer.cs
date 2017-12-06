@@ -2,6 +2,8 @@
 {
     public class Customer : UserInfo
     {
+        private City _city;
+
         public new int Id { get; set; }
         public string Name { get; set; }
         public string Surename { get; set; }
@@ -15,7 +17,21 @@
         public string HouseNumber { get; set; }
 
         [Xml.XmlIgnore]
-        public City City { get; set; }
+        public City City
+        {
+            set
+            {
+                _city = value;
+            }
+            get
+            {
+                if (_city == null)
+                {
+                    _city = DBFactory.Configured().Select(new City(), City_Id);
+                }
+                return _city;
+            }
+        }
 
         [ForeignKey(typeof(City), "Id")]
         public int City_Id { get; set; }

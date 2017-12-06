@@ -49,18 +49,22 @@ namespace WebApp.Controllers
         {
             ShowLoggedUser();
 
-            if (ModelState.IsValid)
+            model.GoodPersonalNumber = CustomerLogic.GoodPersonalNumber(model.PersonalNumber);
+            model.LoginAvaible = CustomerLogic.LoginAvaible(model.Login);
+            
+
+            if (ModelState.IsValid && model.LoginAvaible && model.GoodPersonalNumber)
             { 
                 try
                 {
-                    CustomerLogic.CreateCustomer(new DataLayerNetCore.Entities.Customer
+                    CustomerLogic.CreateCustomer(new Customer
                     {
                         Login = model.Login,
                         Password = model.Password,
                         Name = model.Name,
                         Surename = model.Surename,
                         PersonalNumber = model.PersonalNumber,
-                        City = new DataLayerNetCore.Entities.City
+                        City = new City
                         {
                             Name = model.CityName,
                             ZipCode = model.CityZip

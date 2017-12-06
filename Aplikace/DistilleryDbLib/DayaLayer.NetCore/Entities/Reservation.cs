@@ -3,12 +3,27 @@
     public class Reservation
     {
         private Material _material;
+        private Customer _customer;
 
         public int Id { get; set; }
         public double MaterialAmount { get; set; }
 
         [Xml.XmlIgnore]
-        public Customer Customer { get; set; }
+        public Customer Customer
+        {
+            set
+            {
+                _customer = value;
+            }
+            get
+            {
+                if (_customer == null)
+                {
+                    _customer = DBFactory.Configured().Select(new Customer(), Customer_Id);
+                }
+                return _customer;
+            }
+        }
 
         [Xml.XmlIgnore]
         public Material Material

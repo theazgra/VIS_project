@@ -37,5 +37,8 @@ namespace WebApp.Models
         public string Email { get; set; }
 
         public string Street { get; set; }
+
+        public bool LoginAvaible { get; set; }
+        public bool GoodPersonalNumber { get; set; }
     }
 }

@@ -22,6 +22,20 @@ namespace DataLayerNetCore
             }
             return null;
         }
+
+        internal static IDatabase Configured()
+        {
+            switch (configuredDbType)
+            {
+                case DBType.SqlServer:
+                    return new SqlDatabase(configuredConnectionString);
+                case DBType.XmlDatabase:
+                    return new XmlDatabase(configuredConnectionString);
+            }
+            return null;
+        }
     }
+
+
 }
 
