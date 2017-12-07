@@ -404,7 +404,7 @@ ALTER TABLE Season
 ADD CONSTRAINT IO_8_SeasonDistillationCount
 CHECK (distillationCount >= 0);
 
-ALTER TABLE UserInfo
+ALTER TABLE UserInfo	
 ADD CONSTRAINT IO_UserLevel
 CHECK (UserLevel  BETWEEN 1 AND 3);
 

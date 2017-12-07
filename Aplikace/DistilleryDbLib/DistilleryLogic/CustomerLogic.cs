@@ -46,6 +46,7 @@ namespace DistilleryLogic
             try
             {
                 newCustomer.RegistrationDate = DateTime.Now;
+                newCustomer.Password = Hashing.Hash(newCustomer.Password);
                 newCustomer.DistilledVolume = 0;
                 newCustomer.UserLevel = UserInfo.Customer;
 

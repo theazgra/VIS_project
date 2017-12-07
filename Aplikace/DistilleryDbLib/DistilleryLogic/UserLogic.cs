@@ -31,6 +31,7 @@ namespace DistilleryLogic
         public static int UpdateUser(UserInfo userInfo)
         {
             IDatabase db = Configuration.GetDatabase();
+            userInfo.Password = Hashing.Hash(userInfo.Password);
 
             return db.Update(userInfo);
         }
@@ -48,6 +49,7 @@ namespace DistilleryLogic
         public static int CreateUser(UserInfo userInfo)
         {
             IDatabase db = Configuration.GetDatabase();
+            userInfo.Password = Hashing.Hash(userInfo.Password);
 
             try
             {
@@ -64,11 +66,11 @@ namespace DistilleryLogic
             IDatabase db = Configuration.GetDatabase();
 
             ICollection<Customer> customers = db.SelectAll(new Customer());
-
+            UserInfo foundUser = null;
             try
             {
-                Customer cc = customers.Where(c => c.Login == login && c.Password == password).Single();
-                return new UserInfo
+                Customer cc = customers.Where(c => c.Login == login).Single();
+                foundUser = new UserInfo
                 {
                     Id = cc.Id,
                     Login = cc.Login,
@@ -82,13 +84,18 @@ namespace DistilleryLogic
             ICollection<UserInfo> users = db.SelectAll(new UserInfo());
             try
             {
-                UserInfo user = users.Where(u => u.Login == login && u.Password == password).Single();
-                return user;
+                foundUser = users.Where(u => u.Login == login).Single();
             }
             catch (Exception)
-            {
+            { }
+
+            if (foundUser == null)
                 return null;
-            }
+
+            if (Hashing.HashMatch(foundUser.Password, password))
+                return foundUser;
+            else
+                return null;
         }
     }
 }
