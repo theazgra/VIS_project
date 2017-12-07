@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models
 {
@@ -21,6 +17,7 @@ namespace WebApp.Models
         public string Surename { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "PersonalNumberMissing")]
+        [StringLength(maximumLength:11, MinimumLength = 11)]
         public string PersonalNumber { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "HouseNumberMissing")]

@@ -2,9 +2,7 @@
 using DataLayerNetCore.Entities;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 
 namespace DistilleryLogic
 {
@@ -57,7 +55,15 @@ namespace DistilleryLogic
             IDatabase db = Configuration.GetDatabase();
             return db.SelectAll(
                 new Reservation())
-                .Where(r => r.Customer_Id == customerId && r.RequestedDateTime < DateTime.Now).ToList();
+                .Where(r => r.Customer_Id == customerId && r.RequestedDateTime < DateTime.Now)
+                .OrderBy(r => r.RequestedDateTime).ToList();
+        }
+
+        public static Reservation GetReservation(int id)
+        {
+            IDatabase db = Configuration.GetDatabase();
+
+            return db.Select(new Reservation(), id);
         }
 
         public static ICollection<Reservation> PendingReservations(int customerId)
@@ -65,7 +71,8 @@ namespace DistilleryLogic
             IDatabase db = Configuration.GetDatabase();
             return db.SelectAll(
                 new Reservation())
-                .Where(r => r.Customer_Id == customerId && r.RequestedDateTime > DateTime.Now).ToList();
+                .Where(r => r.Customer_Id == customerId && r.RequestedDateTime > DateTime.Now)
+                .OrderBy(r => r.RequestedDateTime).ToList();
         }
 
         public static IDictionary<DateTime, ICollection<Reservation>> GetReservationByDayInPeriod(DateTime dateFrom, DateTime dateTo)
@@ -73,7 +80,10 @@ namespace DistilleryLogic
             IDatabase db = Configuration.GetDatabase();
 
             IEnumerable<Reservation> reservations = db.SelectAll(new Reservation())
-                .Where(r => r.RequestedDateTime >= dateFrom && r.RequestedDateTime <= dateTo);
+                .Where(r => r.RequestedDateTime >= dateFrom && r.RequestedDateTime <= dateTo)
+                .OrderBy(r => r.RequestedDateTime);
+
+            
 
             IDictionary<DateTime, ICollection<Reservation>> result = new Dictionary<DateTime, ICollection<Reservation>>();
 
@@ -89,6 +99,7 @@ namespace DistilleryLogic
                     result[r.RequestedDateTime.Date].Add(r);
                 }
             }
+
 
             return result;
         }

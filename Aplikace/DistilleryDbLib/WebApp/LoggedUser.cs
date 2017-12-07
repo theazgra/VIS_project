@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DataLayerNetCore.Entities;
-using DistilleryLogic;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace WebApp

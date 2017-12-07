@@ -1,0 +1,47 @@
+﻿@model DataLayerNetCore.Entities.Reservation
+
+@{
+    ViewData["Title"] = "ReservationDetail";
+}
+<br />
+<div class="col-sm-8">
+    <div class="card col-sm-6">
+            <h3>Rezervace zákazníka <a href="@Url.Action("CustomerDetail", "Administration", new {id = @Model.Customer.Id})">@Model.Customer.Surename  @Model.Customer.Name</a></h3>
+
+            <div class="card-body">
+                <h4 class="card-title">Rezervovaný datum a čas @Model.RequestedDateTime.ToString()</h4>
+                
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Materiál:</b> 
+                        </div>
+                        <div class="col-sm-3">
+                                @Model.Material.Name
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Množství materiálu:</b> 
+                        </div>
+                        <div class="col-sm-3">
+                                @Model.MaterialAmount
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Datum vytvoření rezervace:</b> 
+                        </div>
+                        <div class="col-sm-4">
+                                @Model.ReservationDateTime
+                        </div>
+                    </div>
+                </p>
+            </div>
+    </div>
+</div>
+

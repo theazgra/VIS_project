@@ -23,103 +23,39 @@
   <City_set>
     <City>
       <Id>0</Id>
-      <Name>6</Name>
-      <ZipCode>7</ZipCode>
+      <Name>hnevosice</Name>
+      <ZipCode>74735</ZipCode>
       <District_Id>1</District_Id>
       <Region_Id>1</Region_Id>
     </City>
     <City>
       <Id>1</Id>
-      <Name>strahovice</Name>
-      <ZipCode>747355</ZipCode>
-      <District_Id>1</District_Id>
-      <Region_Id>1</Region_Id>
-    </City>
-    <City>
-      <Id>2</Id>
       <Name>Strahovice</Name>
       <ZipCode>74724</ZipCode>
       <District_Id>1</District_Id>
       <Region_Id>1</Region_Id>
     </City>
   </City_set>
-  <Customer_set>
-    <Customer>
-      <Id>1</Id>
-      <Name>vojta</Name>
-      <Surename>moravec</Surename>
-      <PersonalNumber>787845/7878</PersonalNumber>
-      <Phone>555848665</Phone>
-      <Email>
-      </Email>
-      <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
-      <Note>
-      </Note>
-      <Street>56565</Street>
-      <HouseNumber>4564</HouseNumber>
-      <City_Id>1</City_Id>
-      <Login>customer</Login>
-      <Password>customer</Password>
-      <UserLevel>3</UserLevel>
-    </Customer>
-    <Customer>
-      <Id>1</Id>
-      <Name>vojta</Name>
-      <Surename>moravec</Surename>
-      <PersonalNumber>787845/7878</PersonalNumber>
-      <Phone>555848665</Phone>
-      <Email>
-      </Email>
-      <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
-      <Note>
-      </Note>
-      <Street>56565</Street>
-      <HouseNumber>4564</HouseNumber>
-      <City_Id>1</City_Id>
-      <Login>employee</Login>
-      <Password>employee</Password>
-      <UserLevel>2</UserLevel>
-    </Customer>
-    <Customer>
-      <Id>1</Id>
-      <Name>vojta</Name>
-      <Surename>moravec</Surename>
-      <PersonalNumber>787845/7878</PersonalNumber>
-      <Phone>555848665</Phone>
-      <Email>
-      </Email>
-      <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>05.12.2017 13:20:14</RegistrationDate>
-      <Note>
-      </Note>
-      <Street>56565</Street>
-      <HouseNumber>4564</HouseNumber>
-      <City_Id>1</City_Id>
+  <UserInfo_set>
+    <UserInfo>
+      <Id>0</Id>
       <Login>admin</Login>
       <Password>admin</Password>
       <UserLevel>1</UserLevel>
-    </Customer>
-    <Customer>
+    </UserInfo>
+    <UserInfo>
       <Id>2</Id>
-      <Name>Vojtěch</Name>
-      <Surename>Moravec</Surename>
-      <PersonalNumber>960509/5951</PersonalNumber>
-      <Phone>605914980</Phone>
-      <Email>theazgra@gmail.com</Email>
-      <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>06.12.2017 13:57:41</RegistrationDate>
-      <Note>
-      </Note>
-      <Street>Strahovice 157</Street>
-      <HouseNumber>Strahovice 157</HouseNumber>
-      <City_Id>2</City_Id>
-      <Login>administratir</Login>
-      <Password>jyjuju</Password>
-      <UserLevel>3</UserLevel>
-    </Customer>
-  </Customer_set>
+      <Login>zamestnanec2</Login>
+      <Password>zamestnanec2</Password>
+      <UserLevel>2</UserLevel>
+    </UserInfo>
+    <UserInfo>
+      <Id>3</Id>
+      <Login>zamestnanec1_1</Login>
+      <Password>noveheslo</Password>
+      <UserLevel>2</UserLevel>
+    </UserInfo>
+  </UserInfo_set>
   <Material_set>
     <Material>
       <Id>0</Id>
@@ -146,26 +82,98 @@
     <Reservation>
       <Id>0</Id>
       <MaterialAmount>25</MaterialAmount>
-      <RequestedDateTime>06.12.2017 13:24:41</RequestedDateTime>
-      <ReservationDateTime>05.12.2017 13:25:23</ReservationDateTime>
-      <Customer_Id>1</Customer_Id>
+      <RequestedDateTime>15.12.2017 12:37:54</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:38:07</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
       <Material_Id>0</Material_Id>
     </Reservation>
     <Reservation>
       <Id>1</Id>
-      <MaterialAmount>4</MaterialAmount>
-      <RequestedDateTime>07.12.2017 10:33:52</RequestedDateTime>
-      <ReservationDateTime>06.12.2017 10:34:21</ReservationDateTime>
-      <Customer_Id>1</Customer_Id>
+      <MaterialAmount>25</MaterialAmount>
+      <RequestedDateTime>22.12.2017 12:38:39</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:38:47</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
       <Material_Id>2</Material_Id>
     </Reservation>
     <Reservation>
       <Id>2</Id>
-      <MaterialAmount>4</MaterialAmount>
-      <RequestedDateTime>06.12.2017 18:17:15</RequestedDateTime>
-      <ReservationDateTime>06.12.2017 14:17:26</ReservationDateTime>
+      <MaterialAmount>350</MaterialAmount>
+      <RequestedDateTime>15.12.2017 18:38:52</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:39:01</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>3</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>3</Id>
+      <MaterialAmount>5</MaterialAmount>
+      <RequestedDateTime>13.12.2017 12:39:06</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:39:16</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>2</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>4</Id>
+      <MaterialAmount>13</MaterialAmount>
+      <RequestedDateTime>14.12.2017 12:40:00</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:40:09</ReservationDateTime>
       <Customer_Id>1</Customer_Id>
       <Material_Id>2</Material_Id>
     </Reservation>
+    <Reservation>
+      <Id>5</Id>
+      <MaterialAmount>20</MaterialAmount>
+      <RequestedDateTime>22.12.2017 14:40:11</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:40:23</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>1</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>6</Id>
+      <MaterialAmount>5</MaterialAmount>
+      <RequestedDateTime>07.12.2017 12:59:28</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:40:46</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>1</Material_Id>
+    </Reservation>
   </Reservation_set>
+  <Customer_set>
+    <Customer>
+      <Id>0</Id>
+      <Name>eliska</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>960509/5852</PersonalNumber>
+      <Phone>5656688898</Phone>
+      <Email>eliska@hriv.cz</Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>07.12.2017 12:37:41</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>1. maje </Street>
+      <HouseNumber>189</HouseNumber>
+      <City_Id>0</City_Id>
+      <Login>eliska</Login>
+      <Password>eliska</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>1</Id>
+      <Name>lukas</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>960509/4961</PersonalNumber>
+      <Phone>
+      </Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>07.12.2017 12:39:52</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>Strahovice 157</Street>
+      <HouseNumber>Strahovice 157</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>lukas</Login>
+      <Password>lukas</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+  </Customer_set>
 </distillery>

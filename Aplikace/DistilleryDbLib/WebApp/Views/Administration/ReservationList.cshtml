@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "ReservationList";
 }
-<div class="col-sm-12">
+<div class="col-sm-8">
     <h3>Seznam rezervací</h3>
     @{
         IDictionary<DateTime, ICollection<DataLayerNetCore.Entities.Reservation>> values = (IDictionary<DateTime, ICollection<DataLayerNetCore.Entities.Reservation>>)ViewData["reservationDic"];
@@ -14,12 +14,16 @@
         @foreach (DateTime date in values.Keys)
         {
             <h4>@date.ToShortDateString()</h4>
-            <ul class="list-group col-sm-4">
+            <div class="list-group col-sm-5 ">
                 @foreach (DataLayerNetCore.Entities.Reservation r in values[date])
                 {
-                    <li class="list-group-item">@r.Customer.City.Name</li>
+                    <a href="@Url.Action("ReservationDetail", "Administration", new {id = r.Id})" class="list-group-item list-group-item-action" >
+                        <b>Čas: </b>@r.RequestedDateTime.ToShortTimeString()
+                        <b>Materiál: </b>@r.Material.Name
+                        <b>Množství: </b>@r.MaterialAmount Kg
+                    </a>
                 }
-            </ul>
+            </div>
         }
     }
     else

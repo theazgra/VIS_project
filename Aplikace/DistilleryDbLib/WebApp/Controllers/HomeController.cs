@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
 using DistilleryLogic;
-using Microsoft.AspNetCore.Identity;
 using DataLayerNetCore.Entities;
-using Microsoft.AspNetCore.Http;
 
 namespace WebApp.Controllers
 {
@@ -50,7 +44,7 @@ namespace WebApp.Controllers
             ShowLoggedUser();
 
             model.GoodPersonalNumber = CustomerLogic.GoodPersonalNumber(model.PersonalNumber);
-            model.LoginAvaible = CustomerLogic.LoginAvaible(model.Login);
+            model.LoginAvaible = UserLogic.LoginAvaible(model.Login);
             
 
             if (ModelState.IsValid && model.LoginAvaible && model.GoodPersonalNumber)
@@ -117,7 +111,7 @@ namespace WebApp.Controllers
 
         private void LoginCustomer(string login, string password)
         {
-            if (LoginLogic.Login(login, password) is DataLayerNetCore.Entities.UserInfo user)
+            if (UserLogic.Login(login, password) is DataLayerNetCore.Entities.UserInfo user)
             {
                 LoggedUser loggedUser = new LoggedUser
                 {

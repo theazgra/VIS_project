@@ -32,7 +32,8 @@ CREATE
     Id INTEGER NOT NULL IDENTITY NOT FOR REPLICATION ,
     name NVARCHAR (20) NOT NULL ,
 	login NVARCHAR (20) NOT NULL ,
-	password NVARCHAR (20) NOT NULL ,
+	password NVARCHAR (20) NOT NULL,
+	userLevel INTEGER NOT NULL DEFAULT 3,
     surename NVARCHAR (30) NOT NULL ,
     personalNumber NVARCHAR (12) NOT NULL ,
     phone NVARCHAR (15) ,
@@ -405,7 +406,7 @@ CHECK (distillationCount >= 0);
 
 ALTER TABLE UserInfo
 ADD CONSTRAINT IO_UserLevel
-CHECK (UserLevel  BETWEEN 0 AND 1);
+CHECK (UserLevel  BETWEEN 1 AND 3);
 
 
 

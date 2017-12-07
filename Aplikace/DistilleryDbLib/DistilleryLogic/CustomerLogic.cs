@@ -1,8 +1,6 @@
 ﻿using DataLayerNetCore;
 using DataLayerNetCore.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace DistilleryLogic
@@ -17,7 +15,7 @@ namespace DistilleryLogic
             if (!personalNumber.Contains("/"))
                 return false;
 
-            personalNumber =  personalNumber.Replace("/", string.Empty);
+            personalNumber = personalNumber.Replace("/", string.Empty);
 
             if (!long.TryParse(personalNumber, out long pnValue))
                 return false;
@@ -25,20 +23,22 @@ namespace DistilleryLogic
             if (pnValue % 11 != 0)
                 return false;
 
-            return true;
-        }
-
-        public static bool LoginAvaible(string login)
-        {
 
             IDatabase db = Configuration.GetDatabase();
 
-            if (db.SelectAll(new Customer()).Count(c => c.Login == login) > 0)
-                return false;
-            if (db.SelectAll(new UserInfo()).Count(u => u.Login == login) > 0)
+            if (db.SelectAll(new Customer()).Count(c => c.PersonalNumber == personalNumber) > 0)
                 return false;
 
             return true;
+        }
+
+
+
+
+        public static Customer GetCustomer(int id)
+        {
+            IDatabase db = Configuration.GetDatabase();
+            return db.Select(new Customer(), id);
         }
 
         public static Customer CreateCustomer(Customer newCustomer)
@@ -47,7 +47,7 @@ namespace DistilleryLogic
             {
                 newCustomer.RegistrationDate = DateTime.Now;
                 newCustomer.DistilledVolume = 0;
-                newCustomer.UserLevel = Customer.Customer;
+                newCustomer.UserLevel = UserInfo.Customer;
 
                 IDatabase db = Configuration.GetDatabase();
 
@@ -69,13 +69,12 @@ namespace DistilleryLogic
                 }
 
                 db.Insert(newCustomer);
-              
+
 
                 return newCustomer;
             }
             catch (Exception e)
             {
-
                 throw new DatabaseException(e.Message, e);
             }
         }

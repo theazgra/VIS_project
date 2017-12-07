@@ -1,0 +1,58 @@
+﻿@model WebApp.Models.UserInfoForm
+@{
+    ViewData["Title"] = "UserDetail";
+}
+<br />
+@using (Html.BeginForm("UserDetail", "Administration", FormMethod.Post))
+{
+    <div class="col-sm-8">
+        <div class="card col-sm-8">
+            <h3 align="center">Detail Uživatele @Model.Login</h3>
+            <div class="card-body">
+                <!-- ZAKLADNI UDAJE -->
+                <h4 class="card-title">Základní údaje</h4>
+                <p class="card-text border">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <b>Login:</b>
+                        </div>
+                        <div class="col-sm-4">
+                            <input asp-for="Login" id="login" class="form-control sm-2" type="text" placeholder="Login">
+                            @Html.ValidationMessageFor(m => m.Login)
+                        </div>
+
+                    </div>
+                </p>
+                @if (Model != null && !Model.LoginAvaible)
+                {
+                    <p><b>Daný login není k dispozici.</b></p>
+                }
+                <p class="card-text border">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <b>Heslo:</b>
+                        </div>
+                        <div class="col-sm-4">
+                            <input asp-for="Password" id="password" class="form-control sm-2" type="password" placeholder="Heslo">
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <b>Uživatelská úroveň:</b>
+                        </div>
+                        <div class="col-sm-4">
+                            <select asp-for="UserLevelName" class="form-control" id="exampleFormControlSelect1">
+                                <option>Administrátor</option>
+                                <option>Zaměstnanec</option>
+                            </select>
+                        </div>
+                    </div>
+                </p>
+                <button name="submit" class="btn btn-primary" type="submit">Uložit změny</button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,122 @@
+﻿@model DataLayerNetCore.Entities.Customer
+
+@{
+    ViewData["Title"] = "CustomerDetail";
+    
+    bool renderPhone = !string.IsNullOrEmpty(Model.Phone);
+    bool renderEmail = !string.IsNullOrEmpty(Model.Email);
+}
+
+<br />
+<div class="col-sm-8">
+    <div class="card col-sm-6">
+            <h3 align="center" >Detail zákazníka @Model.Surename  @Model.Name</h3>
+
+            <div class="card-body">
+                <!-- ZAKLADNI UDAJE -->
+                <h4 class="card-title">Základní údaje</h4>
+                <p class="card-text border">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Příjmení:</b> 
+                        </div>
+                        <div class="col-sm-3">
+                                @Model.Surename
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Jméno:</b> 
+                        </div>
+                        <div class="col-sm-4">
+                                @Model.Name
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Rodné číslo:</b> 
+                        </div>
+                        <div class="col-sm-3">
+                                @Model.PersonalNumber
+                        </div>
+                    </div>
+                </p>
+                <!-- Adresa -->
+                <h4 class="card-title">Bydliště</h4>
+                <p class="card-text border">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Obec a PSČ:</b> 
+                        </div>
+                        <div class="col-sm-5">
+                                @Model.City.NameZip
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Ulice:</b> 
+                        </div>
+                        <div class="col-sm-4">
+                                @Model.Street
+                        </div>
+                    </div>
+                </p>
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Číslo domu:</b> 
+                        </div>
+                        <div class="col-sm-3">
+                                @Model.HouseNumber
+                        </div>
+                    </div>
+                </p>
+                <!-- KONTAKNI UDAJE -->
+                <h4 class="card-title">Kontaktní údaje</h4>
+                @if(renderPhone)
+                {
+                    <p class="card-text  border">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <b>Telefon:</b> 
+                            </div>
+                            <div class="col-sm-3">
+                                    @Model.Phone
+                            </div>
+                        </div>
+                    </p>
+                }
+                @if(renderEmail)
+                {
+
+                    <p class="card-text">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <b>Email:</b> 
+                            </div>
+                            <div class="col-sm-4">
+                                @Model.Email
+                            </div>
+                        </div>
+                    </p>
+                }
+                <p class="card-text border">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <b>Vypáleno v této sezóně [L.A.A.]:</b> 
+                        </div>
+                        <div class="col-sm-3">
+                                <b>@Model.DistilledVolume</b>
+                        </div>
+                    </div>
+                </p>
+            </div>
+    </div>
+</div>
+

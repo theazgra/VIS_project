@@ -1,0 +1,51 @@
+﻿@model WebApp.Models.UserInfoForm
+
+@{
+    ViewData["Title"] = "NewUser";
+}
+
+<h2>Registrace nového uživatele</h2>
+
+@using (Html.BeginForm("NewUser", "Administration", FormMethod.Post))
+{
+    <div class="col-md-8">
+        <br/>
+
+        <h4>Přihlašovací údaje</h4>
+        <br/>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="login">Login</label>
+                <input asp-for="Login" id="login" class="form-control sm-2" type="text" placeholder="Login">
+                @Html.ValidationMessageFor(m => m.Login)
+                @if(Model != null && !Model.LoginAvaible)
+                {
+                    <p><b>Daný login není k dispozici.</b></p>
+                }
+            </div>
+            <div class="form-group col-md-4">
+                <label for="login">Heslo</label>
+                <input asp-for="Password" id="password" class="form-control sm-2" type="password" placeholder="Heslo">
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+
+        <h4>Typ uživatele</h4>
+        <br/>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="userLvl">Typ uživatele</label>
+                <select asp-for="UserLevelName" id="userLvl" class="form-control">
+                    <option>Zaměstnanec</option>
+                    <option>Administrátor</option>
+                </select>
+            </div>
+        </div>
+    
+        <button name="submit" class="btn btn-primary" type="submit">Registrovat</button>
+    </div>
+}
+
+
