@@ -47,9 +47,9 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zákaznícíToolStripMenuItem,
-            this.přehledPáleníToolStripMenuItem,
             this.novýZáznamPáleníToolStripMenuItem,
+            this.přehledPáleníToolStripMenuItem,
+            this.zákaznícíToolStripMenuItem,
             this.číselníkyToolStripMenuItem,
             this.administraceToolStripMenuItem,
             this.oknaToolStripMenuItem});
@@ -64,7 +64,7 @@
             this.zákaznícíToolStripMenuItem.Name = "zákaznícíToolStripMenuItem";
             this.zákaznícíToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.zákaznícíToolStripMenuItem.Text = "Zákaznící";
-            this.zákaznícíToolStripMenuItem.Click += new System.EventHandler(this.customerToolTipMenuItemClick);
+            this.zákaznícíToolStripMenuItem.Click += new System.EventHandler(this.CustomersMIClick);
             // 
             // přehledPáleníToolStripMenuItem
             // 

@@ -1,6 +1,0 @@
-C:\Users\Vojtěch\Disk Google\vsb\DAIS\Projekt\Aplikace\DistilleryDbLib\DistilleryDbLib\bin\Debug\DistilleryDbLib.dll.config
-C:\Users\Vojtěch\Disk Google\vsb\DAIS\Projekt\Aplikace\DistilleryDbLib\DistilleryDbLib\bin\Debug\DistilleryDbLib.dll
-C:\Users\Vojtěch\Disk Google\vsb\DAIS\Projekt\Aplikace\DistilleryDbLib\DistilleryDbLib\bin\Debug\DistilleryDbLib.pdb
-C:\Users\Vojtěch\Disk Google\vsb\DAIS\Projekt\Aplikace\DistilleryDbLib\DistilleryDbLib\obj\Debug\DistilleryDbLib.csprojResolveAssemblyReference.cache
-C:\Users\Vojtěch\Disk Google\vsb\DAIS\Projekt\Aplikace\DistilleryDbLib\DistilleryDbLib\obj\Debug\DistilleryDbLib.dll
-C:\Users\Vojtěch\Disk Google\vsb\DAIS\Projekt\Aplikace\DistilleryDbLib\DistilleryDbLib\obj\Debug\DistilleryDbLib.pdb

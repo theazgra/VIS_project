@@ -89,7 +89,7 @@ namespace DataLayerNetCore.Xml
             return 1;
         }
 
-        private XmlElement ConstructElement<T>(T entity)
+        private XmlElement ConstructElement<T>(T entity, int id = -885)
         {
             XmlElement entityElement = xmlDocument.CreateElement(entity.GetType().Name);
 
@@ -109,8 +109,10 @@ namespace DataLayerNetCore.Xml
                 }
 
                 XmlElement propElement = xmlDocument.CreateElement(property.Name);
-                if (property.Name == "Id")
+                if (property.Name == "Id" && id == -885)
                     propElement.InnerText = GetNextId(entity).ToString();
+                else if (property.Name == "Id")
+                    propElement.InnerText = id.ToString();
                 else
                     propElement.InnerText = property.GetValue(entity)?.ToString();
 
@@ -278,7 +280,7 @@ namespace DataLayerNetCore.Xml
             XmlNode setNode = xmlDocument.SelectSingleNode(rootName + entitySet);
 
             setNode.RemoveChild(node);
-            setNode.AppendChild(ConstructElement(entity));
+            setNode.AppendChild(ConstructElement(entity, id));
 
             SaveXml();
             return 1;

@@ -1,6 +1,4 @@
-﻿using DistilleryDbLib.Adapters;
-using DistilleryDbLib.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +12,7 @@ namespace WinFormApp.Forms
 {
     public partial class DistillationForm : Form
     {
-        private List<Distillation> _distillationList;
+        //private List<Distillation> _distillationList;
         public DistillationForm()
         {
             InitializeComponent();
@@ -22,8 +20,8 @@ namespace WinFormApp.Forms
 
         private void Reload()
         {
-            _distillationList = DistillationTable.Select().ToList();
-            distillationGridView.DataSource = _distillationList;
+            //_distillationList = DistillationTable.Select().ToList();
+            //distillationGridView.DataSource = _distillationList;
         }
 
         private void DistillationForm_Load(object sender, EventArgs e)
@@ -33,28 +31,28 @@ namespace WinFormApp.Forms
 
         private void detailPáleníToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Distillation d = distillationGridView.CurrentRow.DataBoundItem as Distillation;
-            if (d != null)
-            {
-                DistillationDetail dd = new DistillationDetail(d.Id);
-                if (dd.ShowDialog() == DialogResult.OK)
-                {
-                    Reload();
-                }
-            }
+            ////Distillation d = distillationGridView.CurrentRow.DataBoundItem as Distillation;
+            //if (d != null)
+            //{
+            //    DistillationDetail dd = new DistillationDetail(d.Id);
+            //    if (dd.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Reload();
+            //    }
+            //}
         }
 
         private void distillationGridView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Distillation d = distillationGridView.CurrentRow.DataBoundItem as Distillation;
-            if (d != null)
-            {
-                DistillationDetail dd = new DistillationDetail(d.Id);
-                if (dd.ShowDialog() == DialogResult.OK)
-                {
-                    Reload();
-                }
-            }
+            ////Distillation d = distillationGridView.CurrentRow.DataBoundItem as Distillation;
+            //if (d != null)
+            //{
+            //    DistillationDetail dd = new DistillationDetail(d.Id);
+            //    if (dd.ShowDialog() == DialogResult.OK)
+            //    {
+            //        Reload();
+            //    }
+            //}
         }
     }
 }

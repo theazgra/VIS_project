@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistilleryDbLib", "DistilleryDbLib\DistilleryDbLib.csproj", "{D3BA9C03-AA3F-4195-B5CB-D27207883E88}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormApp", "WinFormApp\WinFormApp.csproj", "{276CE11C-FDA8-47A6-951E-26C3722F1506}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayerNetCore", "DayaLayer.NetCore\DataLayerNetCore.csproj", "{1A7A4A3B-90AA-4AC4-AD84-281A1B80AD5E}"
@@ -13,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistilleryLogic", "DistilleryLogic\DistilleryLogic.csproj", "{B40AEDA3-3E84-4EDB-963E-AE779419D152}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppCore", "TestAppCore\TestAppCore.csproj", "{6E21E95F-80F8-4A57-A6A2-AE0C6937642D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAppCore", "TestAppCore\TestAppCore.csproj", "{6E21E95F-80F8-4A57-A6A2-AE0C6937642D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D3BA9C03-AA3F-4195-B5CB-D27207883E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3BA9C03-AA3F-4195-B5CB-D27207883E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3BA9C03-AA3F-4195-B5CB-D27207883E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3BA9C03-AA3F-4195-B5CB-D27207883E88}.Release|Any CPU.Build.0 = Release|Any CPU
 		{276CE11C-FDA8-47A6-951E-26C3722F1506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{276CE11C-FDA8-47A6-951E-26C3722F1506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{276CE11C-FDA8-47A6-951E-26C3722F1506}.Release|Any CPU.ActiveCfg = Release|Any CPU

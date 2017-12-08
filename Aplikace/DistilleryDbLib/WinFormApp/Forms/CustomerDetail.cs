@@ -1,15 +1,8 @@
-﻿using DistilleryDbLib.Adapters;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using DistilleryLogic;
 using System.Windows.Forms;
-using DistilleryDbLib.Classes;
-using DistilleryDbLib;
+using DataLayerNetCore.Entities;
+using System.Linq;
 
 namespace WinFormApp.Forms
 {
@@ -20,16 +13,16 @@ namespace WinFormApp.Forms
         public CustomerDetail(int customerId)
         {
             InitializeComponent();
-            _customer = CustomerTable.Select(customerId);
+            _customer = CustomerLogic.GetCustomer(customerId);
         }
 
         private void CustomerDetail_Load(object sender, EventArgs e)
         {
-            cityCB.DataSource = CityTable.Select().ToList();
-            cityCB.DisplayMember = "name";
+            cityCB.DataSource = CityLogic.GetAllCities();
+            cityCB.DisplayMember = "Name";
             foreach (City item in cityCB.Items)
             {
-                if (item.nameZip == _customer.City.nameZip)
+                if (item.NameZip == _customer.City.NameZip)
                 {
                     cityCB.SelectedItem = item;
                     break;
@@ -38,30 +31,33 @@ namespace WinFormApp.Forms
 
             cityCB.SelectedItem = _customer.City;
 
-            nameTBox.Text = _customer.name;
-            surenameTBox.Text = _customer.surename;
-            perNumTBox.Text = _customer.personalNumber;
-            phoneTBox.Text = _customer.phone;
-            emailTBox.Text = _customer.email;
-            streetTBox.Text = _customer.street;
-            houseNumTBox.Text = _customer.houseNumber;
-            regDate.Text = _customer.registrationDate.ToShortDateString();
-            distilledVolumeTBox.Text = _customer.distilledVolume.ToString("0.00");
+            nameTBox.Text = _customer.Name;
+            surenameTBox.Text = _customer.Surename;
+            perNumTBox.Text = _customer.PersonalNumber;
+            phoneTBox.Text = _customer.Phone;
+            emailTBox.Text = _customer.Email;
+            streetTBox.Text = _customer.Street;
+            houseNumTBox.Text = _customer.HouseNumber;
+            regDate.Text = _customer.RegistrationDate.ToShortDateString();
+            distilledVolumeTBox.Text = _customer.DistilledVolume.ToString("0.00");
+
+            customerReservationList.DataSource = ReservationLogic.PendingReservations(_customer.Id);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SaveCustomerClick(object sender, EventArgs e)
         {
-            _customer.name = nameTBox.Text;
-            _customer.surename = surenameTBox.Text;
-            _customer.personalNumber = perNumTBox.Text;
-            _customer.phone = phoneTBox.Text;
-            _customer.email = emailTBox.Text;
-            _customer.street = streetTBox.Text;
-            _customer.houseNumber = houseNumTBox.Text;
+            _customer.Name = nameTBox.Text;
+            _customer.Surename = surenameTBox.Text;
+            _customer.PersonalNumber = perNumTBox.Text;
+            _customer.Phone = phoneTBox.Text;
+            _customer.Email = emailTBox.Text;
+            _customer.Street = streetTBox.Text;
+            _customer.HouseNumber = houseNumTBox.Text;
             _customer.City_Id = (cityCB.SelectedItem as City).Id;
+
             try
             {
-                CustomerTable.Update(_customer);
+                CustomerLogic.UpdateCustomer(_customer);
                 MessageBox.Show("Změny byly úspěšně uloženy.", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
             }

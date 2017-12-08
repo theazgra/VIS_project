@@ -1,7 +1,4 @@
-﻿using DistilleryDbLib;
-using DistilleryDbLib.Adapters;
-using DistilleryDbLib.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,34 +19,34 @@ namespace WinFormApp.Forms.DialogForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(periodNameTBox.Text))
-            {
-                MessageBox.Show("Není vypněno jméno období!", "Upozorneni", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            Period p = new Period
-            {
-                name = periodNameTBox.Text,
-                startDate = startDate.Value,
-                endDate = null,
-                finished = false,
-                Season_Id = SeasonTable.Select().Where(s => s.finished == false).FirstOrDefault().Id
-            };
-            try
-            {
-                PeriodTable.Insert(p);
-                DialogResult = DialogResult.OK;
-            }
-            catch (DatabaseException)
-            {
-                DialogResult = DialogResult.Cancel;
-                MessageBox.Show("Nepodarilo se vlozit obdobi!", "Upozorneni", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (string.IsNullOrEmpty(periodNameTBox.Text))
+            //{
+            //    MessageBox.Show("Není vypněno jméno období!", "Upozorneni", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //Period p = new Period
+            //{
+            //    name = periodNameTBox.Text,
+            //    startDate = startDate.Value,
+            //    endDate = null,
+            //    finished = false,
+            //    Season_Id = SeasonTable.Select().Where(s => s.finished == false).FirstOrDefault().Id
+            //};
+            //try
+            //{
+            //    PeriodTable.Insert(p);
+            //    DialogResult = DialogResult.OK;
+            //}
+            //catch (DatabaseException)
+            //{
+            //    DialogResult = DialogResult.Cancel;
+            //    MessageBox.Show("Nepodarilo se vlozit obdobi!", "Upozorneni", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
         private void NewPeriodForm_Load(object sender, EventArgs e)
         {
-            seasonTBox.Text = SeasonTable.ActiveSeasonName();
+            //seasonTBox.Text = SeasonTable.ActiveSeasonName();
             startDate.Value = DateTime.Today;
         }
     }

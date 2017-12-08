@@ -44,7 +44,12 @@
             this.streetTBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cityCB = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbLogin = new System.Windows.Forms.TextBox();
+            this.tbPswrd = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -177,25 +182,74 @@
             this.cityCB.Size = new System.Drawing.Size(136, 24);
             this.cityCB.TabIndex = 7;
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(46, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 48);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Přidat";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnAdd.Location = new System.Drawing.Point(47, 370);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(178, 48);
+            this.btnAdd.TabIndex = 8;
+            this.btnAdd.Text = "Přidat";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 305);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Login";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 333);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 17);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Heslo";
+            // 
+            // tbLogin
+            // 
+            this.tbLogin.Location = new System.Drawing.Point(113, 302);
+            this.tbLogin.Name = "tbLogin";
+            this.tbLogin.Size = new System.Drawing.Size(136, 22);
+            this.tbLogin.TabIndex = 8;
+            // 
+            // tbPswrd
+            // 
+            this.tbPswrd.Location = new System.Drawing.Point(113, 330);
+            this.tbPswrd.Name = "tbPswrd";
+            this.tbPswrd.PasswordChar = '*';
+            this.tbPswrd.Size = new System.Drawing.Size(136, 22);
+            this.tbPswrd.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(67, 270);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 18);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Přihlašovací údaje";
             // 
             // NewCustomerForm
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 330);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(274, 432);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cityCB);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbPswrd);
             this.Controls.Add(this.streetTBox);
+            this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.houseNumTBox);
             this.Controls.Add(this.label6);
@@ -236,6 +290,11 @@
         private System.Windows.Forms.TextBox streetTBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cityCB;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbLogin;
+        private System.Windows.Forms.TextBox tbPswrd;
+        private System.Windows.Forms.Label label11;
     }
 }

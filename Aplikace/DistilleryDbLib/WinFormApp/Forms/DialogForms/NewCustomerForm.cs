@@ -1,6 +1,5 @@
-﻿using DistilleryDbLib;
-using DistilleryDbLib.Adapters;
-using DistilleryDbLib.Classes;
+﻿using DataLayerNetCore.Entities;
+using DistilleryLogic;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +20,9 @@ namespace WinFormApp.Forms.DialogForms
                 surenameTBox,
                 perNumTBox,
                 houseNumTBox,
-                streetTBox
+                streetTBox,
+                tbPswrd,
+                tbLogin
             };
         }
 
@@ -39,32 +40,45 @@ namespace WinFormApp.Forms.DialogForms
 
         private void NewCustomerForm_Load(object sender, EventArgs e)
         {
-            cityCB.DataSource = CityTable.Select().ToList();
-            cityCB.DisplayMember = "name";
+            cityCB.DataSource = CityLogic.GetAllCities();
+            cityCB.DisplayMember = "Name";
             cityCB.SelectedIndex = 0;
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            int count = CustomerTable.Select().Where(c => c.personalNumber == perNumTBox.Text).Count();
-            if (AddCheck() && count < 1)
+            if (!CustomerLogic.GoodPersonalNumber(perNumTBox.Text))
+            {
+                MessageBox.Show("Nesprávné rodné číslo.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!UserLogic.LoginAvaible(tbLogin.Text))
+            {
+                MessageBox.Show("Daný login již není k dispozici.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+            if (AddCheck())
             {
                 Customer newCustomer = new Customer
                 {
-                    name = nameTBox.Text,
-                    surename = surenameTBox.Text,
-                    personalNumber = perNumTBox.Text,
-                    phone = phoneTBox.Text,
-                    email = emailTBox.Text,
-                    street = streetTBox.Text,
-                    houseNumber = houseNumTBox.Text,
+                    Name = nameTBox.Text,
+                    Surename = surenameTBox.Text,
+                    PersonalNumber = perNumTBox.Text,
+                    Phone = phoneTBox.Text,
+                    Email = emailTBox.Text,
+                    Street = streetTBox.Text,
+                    HouseNumber = houseNumTBox.Text,
                     City_Id = (cityCB.SelectedItem as City).Id,
-                    registrationDate = DateTime.Now,
-                    distilledVolume = 0
+                    RegistrationDate = DateTime.Now,
+                    DistilledVolume = 0,
+                    Login = tbLogin.Text,
+                    Password = tbPswrd.Text,
+                    UserLevel = UserInfo.Customer
                 };
                 try
                 {
-                    CustomerTable.Insert(newCustomer);
+                    CustomerLogic.CreateCustomer(newCustomer);
                     DialogResult = DialogResult.OK;
                 }
                 catch (DatabaseException)

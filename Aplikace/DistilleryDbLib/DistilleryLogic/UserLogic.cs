@@ -61,6 +61,29 @@ namespace DistilleryLogic
             }
         }
 
+        public static UserInfo LoginUser(string login, string password)
+        {
+            IDatabase db = Configuration.GetDatabase();
+
+            UserInfo foundUser = null;
+            
+            ICollection<UserInfo> users = db.SelectAll(new UserInfo());
+            try
+            {
+                foundUser = users.Where(u => u.Login == login).Single();
+            }
+            catch (Exception)
+            { }
+
+            if (foundUser == null)
+                return null;
+
+            if (Hashing.HashMatch(foundUser.Password, password))
+                return foundUser;
+            else
+                return null;
+        }
+
         public static UserInfo Login(string login, string password)
         {
             IDatabase db = Configuration.GetDatabase();

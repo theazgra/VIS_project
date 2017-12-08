@@ -30,7 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.customerGridView = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.addCustomer = new System.Windows.Forms.ToolStripButton();
+            this.deleteBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchTBox = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.idCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loginCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pasCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userLevelCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +53,6 @@
             this.noteCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.streetCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.houseNumCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.addCustomer = new System.Windows.Forms.ToolStripButton();
-            this.deleteBtn = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.searchTBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +65,9 @@
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCol,
+            this.loginCol,
+            this.pasCol,
+            this.userLevelCol,
             this.cityIdCol,
             this.cityCol,
             this.nameCol,
@@ -75,13 +81,79 @@
             this.streetCol,
             this.houseNumCol});
             this.customerGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.customerGridView.Location = new System.Drawing.Point(0, 181);
+            this.customerGridView.Location = new System.Drawing.Point(0, 30);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.RowTemplate.Height = 24;
             this.customerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerGridView.Size = new System.Drawing.Size(929, 389);
+            this.customerGridView.Size = new System.Drawing.Size(929, 540);
             this.customerGridView.TabIndex = 0;
-            this.customerGridView.DoubleClick += new System.EventHandler(this.customerGridView_DoubleClick);
+            this.customerGridView.DoubleClick += new System.EventHandler(this.CustomerGridView_DoubleClick);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCustomer,
+            this.deleteBtn,
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.searchTBox,
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(929, 27);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // addCustomer
+            // 
+            this.addCustomer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addCustomer.Image = ((System.Drawing.Image)(resources.GetObject("addCustomer.Image")));
+            this.addCustomer.ImageTransparentColor = System.Drawing.SystemColors.Window;
+            this.addCustomer.Name = "addCustomer";
+            this.addCustomer.Size = new System.Drawing.Size(24, 24);
+            this.addCustomer.Text = "toolStripButton1";
+            this.addCustomer.ToolTipText = "Přidat zákazníka";
+            this.addCustomer.Click += new System.EventHandler(this.addCustomer_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
+            this.deleteBtn.ImageTransparentColor = System.Drawing.SystemColors.Window;
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(24, 24);
+            this.deleteBtn.Text = "toolStripButton1";
+            this.deleteBtn.ToolTipText = "Odstranit zákazníka";
+            this.deleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(191, 24);
+            this.toolStripLabel1.Text = "Vyhledávání podle příjmení";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // searchTBox
+            // 
+            this.searchTBox.Name = "searchTBox";
+            this.searchTBox.Size = new System.Drawing.Size(100, 27);
+            this.searchTBox.TextChanged += new System.EventHandler(this.searchTBox_TextChanged);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.SystemColors.Window;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Text = "Reload";
+            this.toolStripButton1.Click += new System.EventHandler(this.ReloadClick);
             // 
             // idCol
             // 
@@ -90,6 +162,30 @@
             this.idCol.Name = "idCol";
             this.idCol.ReadOnly = true;
             this.idCol.Visible = false;
+            // 
+            // loginCol
+            // 
+            this.loginCol.DataPropertyName = "Login";
+            this.loginCol.HeaderText = "login";
+            this.loginCol.Name = "loginCol";
+            this.loginCol.ReadOnly = true;
+            this.loginCol.Visible = false;
+            // 
+            // pasCol
+            // 
+            this.pasCol.DataPropertyName = "Password";
+            this.pasCol.HeaderText = "password";
+            this.pasCol.Name = "pasCol";
+            this.pasCol.ReadOnly = true;
+            this.pasCol.Visible = false;
+            // 
+            // userLevelCol
+            // 
+            this.userLevelCol.DataPropertyName = "UserLevel";
+            this.userLevelCol.HeaderText = "userLevel";
+            this.userLevelCol.Name = "userLevelCol";
+            this.userLevelCol.ReadOnly = true;
+            this.userLevelCol.Visible = false;
             // 
             // cityIdCol
             // 
@@ -179,72 +275,6 @@
             this.houseNumCol.Name = "houseNumCol";
             this.houseNumCol.ReadOnly = true;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCustomer,
-            this.deleteBtn,
-            this.toolStripLabel1,
-            this.toolStripSeparator1,
-            this.searchTBox,
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(929, 27);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // addCustomer
-            // 
-            this.addCustomer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.addCustomer.Image = ((System.Drawing.Image)(resources.GetObject("addCustomer.Image")));
-            this.addCustomer.ImageTransparentColor = System.Drawing.SystemColors.Window;
-            this.addCustomer.Name = "addCustomer";
-            this.addCustomer.Size = new System.Drawing.Size(24, 24);
-            this.addCustomer.Text = "toolStripButton1";
-            this.addCustomer.ToolTipText = "Přidat zákazníka";
-            this.addCustomer.Click += new System.EventHandler(this.addCustomer_Click);
-            // 
-            // deleteBtn
-            // 
-            this.deleteBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
-            this.deleteBtn.ImageTransparentColor = System.Drawing.SystemColors.Window;
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(24, 24);
-            this.deleteBtn.Text = "toolStripButton1";
-            this.deleteBtn.ToolTipText = "Odstranit zákazníka";
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(191, 24);
-            this.toolStripLabel1.Text = "Vyhledávání podle příjmení";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // searchTBox
-            // 
-            this.searchTBox.Name = "searchTBox";
-            this.searchTBox.Size = new System.Drawing.Size(100, 27);
-            this.searchTBox.TextChanged += new System.EventHandler(this.searchTBox_TextChanged);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.SystemColors.Window;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "Reload";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,7 +298,15 @@
         private System.Windows.Forms.DataGridView customerGridView;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton addCustomer;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox searchTBox;
+        private System.Windows.Forms.ToolStripButton deleteBtn;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loginCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pasCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userLevelCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn cityIdCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn cityCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameCol;
@@ -281,10 +319,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noteCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn streetCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn houseNumCol;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox searchTBox;
-        private System.Windows.Forms.ToolStripButton deleteBtn;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

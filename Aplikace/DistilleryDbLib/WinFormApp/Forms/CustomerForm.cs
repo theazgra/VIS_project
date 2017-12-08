@@ -1,13 +1,9 @@
-﻿using DistilleryDbLib.Adapters;
-using DistilleryDbLib.Classes;
+﻿using DataLayerNetCore.Entities;
+using DistilleryLogic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormApp.Forms.DialogForms;
 
@@ -15,7 +11,7 @@ namespace WinFormApp.Forms
 {
     public partial class CustomerForm : Form
     {
-        private List<Customer> _customerList;
+        private ICollection<Customer> _customerList;
         public CustomerForm()
         {
             InitializeComponent();
@@ -37,7 +33,7 @@ namespace WinFormApp.Forms
 
         private void Reload()
         {
-            _customerList = CustomerTable.Select().ToList();
+            _customerList = CustomerLogic.GetAllCustomers();
             customerGridView.DataSource = _customerList;
         }
 
@@ -49,35 +45,40 @@ namespace WinFormApp.Forms
             }
             else
             {
-                _customerList = CustomerTable.SelectBySurename(searchTBox.Text).ToList() ;
+                _customerList =
+                    _customerList.Where(c => c.Surename.StartsWith(searchTBox.Text, StringComparison.CurrentCultureIgnoreCase)).ToList();
+
                 customerGridView.DataSource = _customerList;
             }
             
         }
 
-        private void deleteBtn_Click(object sender, EventArgs e)
+        private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            Customer c = customerGridView.CurrentRow.DataBoundItem as Customer;
-            if (c != null)
+            if (customerGridView.CurrentRow.DataBoundItem is Customer selectedCustomer)
             {
-                if (MessageBox.Show("Opravdu chcete smazat zakaznika " + c.surename + " " + c.name + " ?", "Otazka", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Opravdu chcete smazat zakaznika " + 
+                    selectedCustomer.Surename + " " + selectedCustomer.Name + " ?", 
+                    "Otazka", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int i = CustomerTable.Delete(c.Id);
-                    if(i == 0)
+                    if (CustomerLogic.CanBeDeleted(selectedCustomer.Id))
                     {
-                        MessageBox.Show("Zákazník nemohl být smazát protože má zapsáno pálení.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CustomerLogic.DeleteCustomer(selectedCustomer);
+                        Reload();
                     }
-                    Reload();
+                    else
+                    {
+                        MessageBox.Show("Zákazník nemohl být smazát protože se k němu vážou záznamy.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
 
-        private void customerGridView_DoubleClick(object sender, EventArgs e)
+        private void CustomerGridView_DoubleClick(object sender, EventArgs e)
         {
-            Customer c = customerGridView.CurrentRow.DataBoundItem as Customer;
-            if (c != null)
+            if (customerGridView.CurrentRow.DataBoundItem is Customer selectedCustomer)
             {
-                CustomerDetail cd = new CustomerDetail(c.Id);
+                CustomerDetail cd = new CustomerDetail(selectedCustomer.Id);
                 if (cd.ShowDialog() == DialogResult.OK)
                 {
                     Reload();
@@ -85,7 +86,7 @@ namespace WinFormApp.Forms
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ReloadClick(object sender, EventArgs e)
         {
             Reload();
         }

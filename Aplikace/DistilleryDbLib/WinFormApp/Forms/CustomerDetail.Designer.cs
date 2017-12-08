@@ -49,6 +49,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.distilledVolumeTBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.reservationPanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.customerReservationList = new System.Windows.Forms.DataGridView();
+            this.custId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reqDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reservationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerReservationList)).BeginInit();
             this.SuspendLayout();
             // 
             // cityCB
@@ -223,13 +236,119 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Uložit změny";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.SaveCustomerClick);
+            // 
+            // reservationPanel
+            // 
+            this.reservationPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.reservationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.reservationPanel.Controls.Add(this.customerReservationList);
+            this.reservationPanel.Location = new System.Drawing.Point(330, 52);
+            this.reservationPanel.Name = "reservationPanel";
+            this.reservationPanel.Size = new System.Drawing.Size(624, 336);
+            this.reservationPanel.TabIndex = 17;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(327, 21);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(187, 20);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Rezervace zákazníka";
+            // 
+            // customerReservationList
+            // 
+            this.customerReservationList.AllowUserToAddRows = false;
+            this.customerReservationList.AllowUserToDeleteRows = false;
+            this.customerReservationList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.customerReservationList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customerReservationList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.custId,
+            this.customer,
+            this.idcol,
+            this.matId,
+            this.reqDate,
+            this.MaterialCol,
+            this.matAmount,
+            this.resDate});
+            this.customerReservationList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerReservationList.Location = new System.Drawing.Point(0, 0);
+            this.customerReservationList.MultiSelect = false;
+            this.customerReservationList.Name = "customerReservationList";
+            this.customerReservationList.ReadOnly = true;
+            this.customerReservationList.RowTemplate.Height = 24;
+            this.customerReservationList.Size = new System.Drawing.Size(622, 334);
+            this.customerReservationList.TabIndex = 0;
+            // 
+            // custId
+            // 
+            this.custId.DataPropertyName = "Customer_Id";
+            this.custId.HeaderText = "Column1";
+            this.custId.Name = "custId";
+            this.custId.ReadOnly = true;
+            this.custId.Visible = false;
+            // 
+            // customer
+            // 
+            this.customer.DataPropertyName = "Customer";
+            this.customer.HeaderText = "Column1";
+            this.customer.Name = "customer";
+            this.customer.ReadOnly = true;
+            this.customer.Visible = false;
+            // 
+            // idcol
+            // 
+            this.idcol.DataPropertyName = "Id";
+            this.idcol.HeaderText = "Column1";
+            this.idcol.Name = "idcol";
+            this.idcol.ReadOnly = true;
+            this.idcol.Visible = false;
+            // 
+            // matId
+            // 
+            this.matId.DataPropertyName = "Material_Id";
+            this.matId.HeaderText = "Column1";
+            this.matId.Name = "matId";
+            this.matId.ReadOnly = true;
+            this.matId.Visible = false;
+            // 
+            // reqDate
+            // 
+            this.reqDate.DataPropertyName = "RequestedDateTime";
+            this.reqDate.HeaderText = "Požadované datum a čas";
+            this.reqDate.Name = "reqDate";
+            this.reqDate.ReadOnly = true;
+            // 
+            // MaterialCol
+            // 
+            this.MaterialCol.DataPropertyName = "Material";
+            this.MaterialCol.HeaderText = "Materiál";
+            this.MaterialCol.Name = "MaterialCol";
+            this.MaterialCol.ReadOnly = true;
+            // 
+            // matAmount
+            // 
+            this.matAmount.DataPropertyName = "MaterialAmount";
+            this.matAmount.HeaderText = "Množství materiálu";
+            this.matAmount.Name = "matAmount";
+            this.matAmount.ReadOnly = true;
+            // 
+            // resDate
+            // 
+            this.resDate.DataPropertyName = "ReservationDateTime";
+            this.resDate.HeaderText = "Datum rezervace";
+            this.resDate.Name = "resDate";
+            this.resDate.ReadOnly = true;
             // 
             // CustomerDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 400);
+            this.ClientSize = new System.Drawing.Size(966, 400);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.reservationPanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cityCB);
             this.Controls.Add(this.label8);
@@ -254,6 +373,8 @@
             this.Name = "CustomerDetail";
             this.Text = "Detail zákazníka";
             this.Load += new System.EventHandler(this.CustomerDetail_Load);
+            this.reservationPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.customerReservationList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +403,16 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox distilledVolumeTBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel reservationPanel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView customerReservationList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn custId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reqDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resDate;
     }
 }

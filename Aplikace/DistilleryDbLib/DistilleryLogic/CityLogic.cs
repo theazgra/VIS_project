@@ -6,7 +6,7 @@ namespace DistilleryLogic
 {
     public class CityLogic
     {
-        ICollection<City> GetAllCities()
+        public static ICollection<City> GetAllCities()
         {
             IDatabase db = Configuration.GetDatabase();
             return db.SelectAll(new City());

@@ -1,7 +1,8 @@
-﻿using DistilleryDbLib;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using WinFormApp.Forms;
+using DistilleryLogic;
+using WinFormApp.Forms.DialogForms;
 
 namespace WinFormApp
 {
@@ -13,10 +14,23 @@ namespace WinFormApp
         [STAThread]
         static void Main()
         {
-            Database.SetConnectionString(@"data source = dbsys.cs.vsb.cz\STUDENT; initial catalog = mor0146; user id = mor0146; password = DOpKrj9a2W");
+            Configuration.SetDbConnection(
+                DataLayerNetCore.DBType.XmlDatabase,
+                @"C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
+
+            //DistilleryLogic.Configuration.SetDbConnection(
+            //    DataLayerNetCore.DBType.SqlServer,
+            //    @"data source = dbsys.cs.vsb.cz\STUDENT; initial catalog = mor0146; user id = mor0146; password = Wt0pEzMOWp");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+
+            LoginForm loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainForm(loginForm.LoggedUser));
+            }
         }
     }
 }

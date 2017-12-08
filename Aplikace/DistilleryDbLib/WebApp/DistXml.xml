@@ -132,7 +132,7 @@
   </Reservation_set>
   <Customer_set>
     <Customer>
-      <Id>0</Id>
+      <Id>1</Id>
       <Name>eliska</Name>
       <Surename>moravec</Surename>
       <PersonalNumber>960509/5852</PersonalNumber>
@@ -144,18 +144,17 @@
       </Note>
       <Street>1. maje </Street>
       <HouseNumber>189</HouseNumber>
-      <City_Id>0</City_Id>
+      <City_Id>1</City_Id>
       <Login>eliska</Login>
       <Password>dK0qTkW39fn0jqF1Jl6udNWqO5yCgebKOgZ24lM/S1WaaZxX</Password>
       <UserLevel>3</UserLevel>
     </Customer>
     <Customer>
-      <Id>1</Id>
-      <Name>lukas</Name>
-      <Surename>moravec</Surename>
+      <Id>0</Id>
+      <Name>Lukáš</Name>
+      <Surename>Moravecek</Surename>
       <PersonalNumber>960509/4961</PersonalNumber>
-      <Phone>
-      </Phone>
+      <Phone>884545452</Phone>
       <Email>
       </Email>
       <DistilledVolume>0</DistilledVolume>
@@ -167,6 +166,24 @@
       <City_Id>1</City_Id>
       <Login>lukas</Login>
       <Password>c7uEwx0r9b4DCjnCOr86xxSlFZ8kA235biPztINLduaZKjS0</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>2</Id>
+      <Name>test1</Name>
+      <Surename>test2</Surename>
+      <PersonalNumber>960509/5951</PersonalNumber>
+      <Phone>123456789</Phone>
+      <Email>vojta@dist.com</Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>08.12.2017 10:38:14</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>Mirna</Street>
+      <HouseNumber>45</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>testik</Login>
+      <Password>L30eSaMEpNtaMtoR3RXJwDC1YSpJPKf8w68AijEzKV07pUkj</Password>
       <UserLevel>3</UserLevel>
     </Customer>
   </Customer_set>

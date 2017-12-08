@@ -1,26 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DataLayerNetCore.Entities;
 using System.Windows.Forms;
 
 namespace WinFormApp.Forms
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private UserInfo _loggedUser;
+
+        public MainForm(UserInfo user)
         {
+            if (user == null)
+                Close();
+
+            _loggedUser = user;
             InitializeComponent();
         }
 
-        private void customerToolTipMenuItemClick(object sender, EventArgs e)
+        private void CustomersMIClick(object sender, EventArgs e)
         {
             AddMdiChild(new CustomerForm());
-            
         }
 
         private void AddMdiChild(Form form)
