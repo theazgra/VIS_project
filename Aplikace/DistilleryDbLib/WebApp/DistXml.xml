@@ -132,24 +132,6 @@
   </Reservation_set>
   <Customer_set>
     <Customer>
-      <Id>1</Id>
-      <Name>eliska</Name>
-      <Surename>moravec</Surename>
-      <PersonalNumber>960509/5852</PersonalNumber>
-      <Phone>5656688898</Phone>
-      <Email>eliska@hriv.cz</Email>
-      <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>07.12.2017 12:37:41</RegistrationDate>
-      <Note>
-      </Note>
-      <Street>1. maje </Street>
-      <HouseNumber>189</HouseNumber>
-      <City_Id>1</City_Id>
-      <Login>eliska</Login>
-      <Password>dK0qTkW39fn0jqF1Jl6udNWqO5yCgebKOgZ24lM/S1WaaZxX</Password>
-      <UserLevel>3</UserLevel>
-    </Customer>
-    <Customer>
       <Id>0</Id>
       <Name>Lukáš</Name>
       <Surename>Moravecek</Surename>
@@ -186,5 +168,82 @@
       <Password>L30eSaMEpNtaMtoR3RXJwDC1YSpJPKf8w68AijEzKV07pUkj</Password>
       <UserLevel>3</UserLevel>
     </Customer>
+    <Customer>
+      <Id>3</Id>
+      <Name>Martin</Name>
+      <Surename>Moravec</Surename>
+      <PersonalNumber>960509/7931</PersonalNumber>
+      <Phone>255456789</Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>09.12.2017 12:02:18</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>ulice</Street>
+      <HouseNumber>552</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>martin</Login>
+      <Password>WjOusUG7UvMgTtzrQVdFRpQkC+3a+7ueRUUVc/2Nsf7mDtCZ</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>1</Id>
+      <Name>eliska</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>960509/5852</PersonalNumber>
+      <Phone>5656688898</Phone>
+      <Email>eliska@hriv.cz</Email>
+      <DistilledVolume>6,25</DistilledVolume>
+      <RegistrationDate>07.12.2017 12:37:41</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>1. maje </Street>
+      <HouseNumber>189</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>eliska</Login>
+      <Password>dK0qTkW39fn0jqF1Jl6udNWqO5yCgebKOgZ24lM/S1WaaZxX</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
   </Customer_set>
+  <Season_set>
+    <Season>
+      <Id>0</Id>
+      <Name>2017/2018</Name>
+      <StartDate>09.12.2017 11:53:55</StartDate>
+      <EndDate>
+      </EndDate>
+      <Finished>False</Finished>
+      <DistillationCount>0</DistillationCount>
+    </Season>
+  </Season_set>
+  <Period_set>
+    <Period>
+      <Id>0</Id>
+      <Name>zari 2017</Name>
+      <StartDate>09.12.2017 0:00:00</StartDate>
+      <EndDate>
+      </EndDate>
+      <Finished>False</Finished>
+      <Season_Id>0</Season_Id>
+    </Period>
+  </Period_set>
+  <Distillation_set>
+    <Distillation>
+      <Id>0</Id>
+      <Date>09.12.2017 0:00:00</Date>
+      <StartTime>09.12.2017 12:18:21</StartTime>
+      <EndTime>09.12.2017 12:18:39</EndTime>
+      <Amount>25</Amount>
+      <EthanolPercentage>25</EthanolPercentage>
+      <DistilledVolume>25</DistilledVolume>
+      <AbsoluteAlcoholVolume>6,25</AbsoluteAlcoholVolume>
+      <Price>814,0625</Price>
+      <Payed>True</Payed>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>0</Material_Id>
+      <Season_Id>0</Season_Id>
+      <Period_Id>0</Period_Id>
+    </Distillation>
+  </Distillation_set>
 </distillery>

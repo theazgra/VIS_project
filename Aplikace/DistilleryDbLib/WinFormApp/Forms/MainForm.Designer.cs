@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.zákaznícíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.přehledPáleníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novýZáznamPáleníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.přehledPáleníToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zákaznícíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.číselníkyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.číselníkMěstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.číselníkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,12 +59,12 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // zákaznícíToolStripMenuItem
+            // novýZáznamPáleníToolStripMenuItem
             // 
-            this.zákaznícíToolStripMenuItem.Name = "zákaznícíToolStripMenuItem";
-            this.zákaznícíToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.zákaznícíToolStripMenuItem.Text = "Zákaznící";
-            this.zákaznícíToolStripMenuItem.Click += new System.EventHandler(this.CustomersMIClick);
+            this.novýZáznamPáleníToolStripMenuItem.Name = "novýZáznamPáleníToolStripMenuItem";
+            this.novýZáznamPáleníToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.novýZáznamPáleníToolStripMenuItem.Text = "Nový záznam pálení";
+            this.novýZáznamPáleníToolStripMenuItem.Click += new System.EventHandler(this.NewDistClick);
             // 
             // přehledPáleníToolStripMenuItem
             // 
@@ -73,11 +73,12 @@
             this.přehledPáleníToolStripMenuItem.Text = "Přehled pálení";
             this.přehledPáleníToolStripMenuItem.Click += new System.EventHandler(this.DistillationListClick);
             // 
-            // novýZáznamPáleníToolStripMenuItem
+            // zákaznícíToolStripMenuItem
             // 
-            this.novýZáznamPáleníToolStripMenuItem.Name = "novýZáznamPáleníToolStripMenuItem";
-            this.novýZáznamPáleníToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
-            this.novýZáznamPáleníToolStripMenuItem.Text = "Nový záznam pálení";
+            this.zákaznícíToolStripMenuItem.Name = "zákaznícíToolStripMenuItem";
+            this.zákaznícíToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.zákaznícíToolStripMenuItem.Text = "Zákaznící";
+            this.zákaznícíToolStripMenuItem.Click += new System.EventHandler(this.CustomersMIClick);
             // 
             // číselníkyToolStripMenuItem
             // 
@@ -132,7 +133,7 @@
             // closeMdiChildsMI
             // 
             this.closeMdiChildsMI.Name = "closeMdiChildsMI";
-            this.closeMdiChildsMI.Size = new System.Drawing.Size(181, 26);
+            this.closeMdiChildsMI.Size = new System.Drawing.Size(147, 26);
             this.closeMdiChildsMI.Text = "Zavřít vše";
             this.closeMdiChildsMI.Click += new System.EventHandler(this.closeMdiChildsMI_Click);
             // 

@@ -20,5 +20,11 @@ namespace DistilleryLogic
             IDatabase db = Configuration.GetDatabase();
             return db.SelectAll(new Material()).First(m => m.Name == name).Id;
         }
+
+        public static ICollection<Material> GetAllMaterial()
+        {
+            IDatabase db = Configuration.GetDatabase();
+            return db.SelectAll(new Material());
+        }
     }
 }

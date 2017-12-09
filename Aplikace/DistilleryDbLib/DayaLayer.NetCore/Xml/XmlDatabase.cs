@@ -218,11 +218,23 @@ namespace DataLayerNetCore.Xml
                     property.SetValue(obj, double.Parse(value));
                 else if (property.PropertyType == typeof(DateTime))
                     property.SetValue(obj, DateTime.Parse(value));
+                else if (property.PropertyType == typeof(DateTime?))
+                    property.SetValue(obj, GetNullableDateTimeValue(value));
+                else if (property.PropertyType == typeof(bool))
+                    property.SetValue(obj, bool.Parse(value));
                 else
                     property.SetValue(obj, value);
             }
 
             return obj;
+        }
+
+        private DateTime? GetNullableDateTimeValue(string input)
+        {
+            if (DateTime.TryParse(input, out DateTime date))
+                return date;
+            else
+                return null;
         }
 
 

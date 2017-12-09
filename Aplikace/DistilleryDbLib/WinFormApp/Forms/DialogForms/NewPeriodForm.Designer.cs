@@ -45,7 +45,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Uložit";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.SaveClick);
             // 
             // label1
             // 
@@ -62,6 +62,7 @@
             this.periodNameTBox.Name = "periodNameTBox";
             this.periodNameTBox.Size = new System.Drawing.Size(100, 22);
             this.periodNameTBox.TabIndex = 2;
+            this.periodNameTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -79,6 +80,7 @@
             this.seasonTBox.ReadOnly = true;
             this.seasonTBox.Size = new System.Drawing.Size(100, 22);
             this.seasonTBox.TabIndex = 2;
+            this.seasonTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 

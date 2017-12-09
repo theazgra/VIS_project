@@ -12,9 +12,13 @@ namespace WinFormApp.Forms
     public partial class CustomerForm : Form
     {
         private ICollection<Customer> _customerList;
-        public CustomerForm()
+        private bool _selectCustomer;
+        public Customer SelectedCustomer { get; private set; }
+
+        public CustomerForm(bool selectCustomer = false)
         {
             InitializeComponent();
+            _selectCustomer = selectCustomer;
         }
 
         private void CustomerForm_Load(object sender, EventArgs e)
@@ -78,11 +82,20 @@ namespace WinFormApp.Forms
         {
             if (customerGridView.CurrentRow.DataBoundItem is Customer selectedCustomer)
             {
-                CustomerDetail cd = new CustomerDetail(selectedCustomer.Id);
-                if (cd.ShowDialog() == DialogResult.OK)
+                if (_selectCustomer)
                 {
-                    Reload();
+                    SelectedCustomer = selectedCustomer;
+                    DialogResult = DialogResult.OK;
                 }
+                else
+                {
+                    CustomerDetail cd = new CustomerDetail(selectedCustomer.Id);
+                    if (cd.ShowDialog() == DialogResult.OK)
+                    {
+                        Reload();
+                    }
+                }
+                
             }
         }
 

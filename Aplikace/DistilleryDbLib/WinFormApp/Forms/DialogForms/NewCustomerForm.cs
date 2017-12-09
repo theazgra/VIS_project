@@ -10,10 +10,16 @@ namespace WinFormApp.Forms.DialogForms
 {
     public partial class NewCustomerForm : Form
     {
+        public Customer NewCustomer { get; private set; }
+
         private List<TextBox> _requiredTextBoxes;
-        public NewCustomerForm()
+        private bool _selectCustomer;
+        public NewCustomerForm(bool selectCustomer = false)
         {
             InitializeComponent();
+
+            _selectCustomer = selectCustomer;
+
             _requiredTextBoxes = new List<TextBox>
             {
                 nameTBox,
@@ -42,7 +48,9 @@ namespace WinFormApp.Forms.DialogForms
         {
             cityCB.DataSource = CityLogic.GetAllCities();
             cityCB.DisplayMember = "Name";
-            cityCB.SelectedIndex = 0;
+
+            if (cityCB.Items.Count > 0)
+                cityCB.SelectedIndex = 0;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -78,7 +86,11 @@ namespace WinFormApp.Forms.DialogForms
                 };
                 try
                 {
-                    CustomerLogic.CreateCustomer(newCustomer);
+                    newCustomer = CustomerLogic.CreateCustomer(newCustomer);
+
+                    if (_selectCustomer)
+                        NewCustomer = newCustomer;
+
                     DialogResult = DialogResult.OK;
                 }
                 catch (DatabaseException)

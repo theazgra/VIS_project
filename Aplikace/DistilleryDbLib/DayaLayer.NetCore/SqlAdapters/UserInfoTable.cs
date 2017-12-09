@@ -7,14 +7,14 @@ namespace DataLayerNetCore.SqlAdapters
     class UserInfoTable
     {
         private static string SQL_SELECT =
-            "SELECT ID, NAME, PASSWORD, USERLEVEL FROM USERINFO";
+            "SELECT ID, LOGIN, PASSWORD, USERLEVEL FROM USERINFO";
         private static string SQL_SELECT_ID =
-           "SELECT ID, NAME, PASSWORD, USERLEVEL FROM USERINFO WHERE ID = @ID;";
+           "SELECT ID, LOGIN, PASSWORD, USERLEVEL FROM USERINFO WHERE ID = @ID;";
         private static string SQL_INSERT =
-            "INSERT INTO USERINFO (NAME, PASSWORD, USERLEVEL) VALUES (@NAME, @PASSWORD, @USERLEVEL);";
+            "INSERT INTO USERINFO (LOGIN, PASSWORD, USERLEVEL) VALUES (@LOGIN, @PASSWORD, @USERLEVEL);";
         private static string SQL_DELETE = "DELETE FROM USERINFO WHERE ID = @ID";
         private static string SQL_UPDATE =
-            "UPDATE USERINFO SET NAME = @NAME, PASSWORD = @PASSWORD, USERLEVEL = @USERLEVEL WHERE ID = @ID";
+            "UPDATE USERINFO SET LOGIN = @LOGIN, PASSWORD = @PASSWORD, USERLEVEL = @USERLEVEL WHERE ID = @ID";
 
         public static int Update(UserInfo userInfo)
         {
@@ -102,7 +102,7 @@ namespace DataLayerNetCore.SqlAdapters
 
         private static void PrepareCommand(SqlCommand sqlCom, UserInfo userInfo)
         {
-            sqlCom.Parameters.AddWithValue("@NAME", userInfo.Login);
+            sqlCom.Parameters.AddWithValue("@LOGIN", userInfo.Login);
             sqlCom.Parameters.AddWithValue("@PASSWORD", userInfo.Password);
             sqlCom.Parameters.AddWithValue("@USERLEVEL", userInfo.UserLevel);
         }

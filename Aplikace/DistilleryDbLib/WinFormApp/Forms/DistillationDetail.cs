@@ -1,54 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DistilleryLogic;
 using System.Windows.Forms;
+using DataLayerNetCore.Entities;
 
 namespace WinFormApp.Forms
 {
     public partial class DistillationDetail : Form
     {
-        //private Distillation _distillation;
+        private Distillation _distillation;
+
         public DistillationDetail(int distillationId)
         {
             InitializeComponent();
-          //  _distillation = DistillationTable.Select(distillationId);
+            _distillation = DistillationLogic.GetDistillation(distillationId);
         }
 
         private void DistillationDetail_Load(object sender, EventArgs e)
         {
-            //materialCB.DataSource = MaterialTable.Select().ToList();
-            //materialCB.DisplayMember = "name";
-            //foreach (Material item in materialCB.Items)
-            //{
-            //    if (item.Id == _distillation.Material_Id)
-            //    {
-            //        materialCB.SelectedItem = item;
-            //        break;
-            //    }
-            //}
+            materialCB.DataSource = MaterialLogic.GetAllMaterial();
+            materialCB.DisplayMember = "Name";
+            foreach (Material item in materialCB.Items)
+            {
+                if (item.Id == _distillation.Material_Id)
+                {
+                    materialCB.SelectedItem = item;
+                    break;
+                }
+            }
 
-            //infoLabel.Text = string.Format("Páleni ze dne {0} - {1}", _distillation.date.ToShortDateString(), _distillation.Customer.surename);
-            //nameTBox.Text = _distillation.Customer.name;
-            //surenameTBox.Text = _distillation.Customer.surename;
-            //adressTbox1.Text = _distillation.Customer.houseNumber + " " + _distillation.Customer.street;
-            //adressTBox2.Text = _distillation.Customer.City.nameZip;
+            infoLabel.Text = string.Format("Páleni ze dne {0} - {1}", _distillation.Date.ToShortDateString(), _distillation.Customer.Surename);
+            nameTBox.Text = _distillation.Customer.Name;
+            surenameTBox.Text = _distillation.Customer.Surename;
+            adressTbox1.Text = _distillation.Customer.HouseNumber + " " + _distillation.Customer.Street;
+            adressTBox2.Text = _distillation.Customer.City.NameZip;
 
-            //timeTBox.Text = _distillation.endTime.Subtract(_distillation.startTime).ToString();
+            timeTBox.Text = _distillation.EndTime.Subtract(_distillation.StartTime).ToString();
 
-            //amountTBox.Text = _distillation.amount.ToString("0.00");
-            //percTBox.Text = _distillation.ethanolPercentage.ToString("0.00");
-            //distilledVolumeTBox.Text = _distillation.distilledVolume.ToString("0.00");
-            //laaTBox.Text = _distillation.absoluteAlcoholVolume.ToString("0.00");
-            //priceTBox.Text = _distillation.price.ToString("0.00");
-            //payedCB.Checked = _distillation.payed;
+            amountTBox.Text = _distillation.Amount.ToString("0.00");
+            percTBox.Text = _distillation.EthanolPercentage.ToString("0.00");
+            distilledVolumeTBox.Text = _distillation.DistilledVolume.ToString("0.00");
+            laaTBox.Text = _distillation.AbsoluteAlcoholVolume.ToString("0.00");
+            priceTBox.Text = _distillation.Price.ToString("0.00");
+            payedCB.Checked = _distillation.Payed;
 
-            //seasonTBox.Text = _distillation.Season.name;
-            //periodTBox.Text = _distillation.Period.name;
+            seasonTBox.Text = _distillation.Season.Name;
+            periodTBox.Text = _distillation.Period.Name;
 
         }
 
@@ -59,19 +55,22 @@ namespace WinFormApp.Forms
 
         private void custDetailBtn_Click(object sender, EventArgs e)
         {
-            //CustomerDetail cd = new CustomerDetail(_distillation.Id);
-            //cd.Show();
+            CustomerDetail cd = new CustomerDetail(_distillation.Customer_Id);
+            cd.Show();
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            //int i = DistillationTable.Delete(_distillation.Id);
-            //if ( i <= 0)
-            //{
-            //    MessageBox.Show("Pálení nebylo smazáno, není starší více než 10 let.", "Upozorneni", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
-            //Close();
+            if (DistillationLogic.CanBeDeleted(_distillation))
+            {
+                DistillationLogic.DeleteDistillation(_distillation);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Pálení nebylo smazáno, není starší více než 10 let.", "Upozorneni", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -81,26 +80,26 @@ namespace WinFormApp.Forms
 
         private void UpdateDistillation()
         {
-            //_distillation.Material_Id = (materialCB.SelectedItem as Material).Id;
-            //_distillation.amount = double.Parse(amountTBox.Text.Replace(".", ","));
-            //_distillation.ethanolPercentage = double.Parse(percTBox.Text.Replace(".", ","));
-            //_distillation.distilledVolume = double.Parse(distilledVolumeTBox.Text.Replace(".", ","));
-            //_distillation.absoluteAlcoholVolume = double.Parse(laaTBox.Text.Replace(".", ","));
-            //_distillation.price = double.Parse(priceTBox.Text.Replace(".", ","));
-            //_distillation.payed = payedCB.Checked;
-            //try
-            //{
-            //    DistillationTable.Update(_distillation);
-            //    DialogResult = DialogResult.OK;
-            //}
-            //catch (DatabaseException)
-            //{
-            //    MessageBox.Show("Chyba při ukládání změn.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    DialogResult = DialogResult.Cancel;
-            //    return;
-            //}
-            //MessageBox.Show("Změny byly úspěšně uloženy.", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //Close();
+            _distillation.Material_Id = (materialCB.SelectedItem as Material).Id;
+            _distillation.Amount = double.Parse(amountTBox.Text.Replace(".", ","));
+            _distillation.EthanolPercentage = double.Parse(percTBox.Text.Replace(".", ","));
+            _distillation.DistilledVolume = double.Parse(distilledVolumeTBox.Text.Replace(".", ","));
+            _distillation.AbsoluteAlcoholVolume = double.Parse(laaTBox.Text.Replace(".", ","));
+            _distillation.Price = double.Parse(priceTBox.Text.Replace(".", ","));
+            _distillation.Payed = payedCB.Checked;
+            try
+            {
+                DistillationLogic.UpdateDistillation(_distillation);
+                DialogResult = DialogResult.OK;
+            }
+            catch (DatabaseException)
+            {
+                MessageBox.Show("Chyba při ukládání změn.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.Cancel;
+                return;
+            }
+            MessageBox.Show("Změny byly úspěšně uloženy.", "Informace", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
         }
     }
 }

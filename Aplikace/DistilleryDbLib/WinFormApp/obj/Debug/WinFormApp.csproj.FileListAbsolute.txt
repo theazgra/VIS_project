@@ -137,3 +137,5 @@ C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\b
 C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\bin\Debug\DistilleryLogic.pdb
 C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\bin\Debug\DistilleryLogic.dll.config
 C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\obj\Debug\WinFormApp.Forms.DialogForms.LoginForm.resources
+C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\obj\Debug\WinFormApp.Forms.NewDistillationForm.resources
+C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\bin\Debug\System.Data.SqlClient.dll

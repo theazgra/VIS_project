@@ -1,6 +1,8 @@
 ﻿using System;
 using DataLayerNetCore.Entities;
 using System.Windows.Forms;
+using WinFormApp.Forms.DialogForms;
+using DistilleryLogic;
 
 namespace WinFormApp.Forms
 {
@@ -46,6 +48,20 @@ namespace WinFormApp.Forms
             {
                 mdiChild.Close();
             }
+        }
+
+        private void NewDistClick(object sender, EventArgs e)
+        {
+            if (AdministrationLogic.GetActivePeriod() != null && AdministrationLogic.GetActiveSeason() != null)
+            {
+                NewDistillationForm ndf = new NewDistillationForm();
+                AddMdiChild(ndf);
+            }
+            else
+            {
+                MessageBox.Show("Není nastavená sezóna nebo měsíční období přejděte do administrace.", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
     }
 }

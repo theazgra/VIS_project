@@ -33,9 +33,9 @@
             this.actualSeasonTBox = new System.Windows.Forms.TextBox();
             this.actualPeriodTBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEndPeriod = new System.Windows.Forms.Button();
+            this.btnStartPeriod = new System.Windows.Forms.Button();
+            this.btnStartSeason = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,6 +66,7 @@
             this.actualSeasonTBox.ReadOnly = true;
             this.actualSeasonTBox.Size = new System.Drawing.Size(120, 26);
             this.actualSeasonTBox.TabIndex = 0;
+            this.actualSeasonTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // actualPeriodTBox
             // 
@@ -75,6 +76,7 @@
             this.actualPeriodTBox.ReadOnly = true;
             this.actualPeriodTBox.Size = new System.Drawing.Size(120, 26);
             this.actualPeriodTBox.TabIndex = 1;
+            this.actualPeriodTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -86,44 +88,44 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Administrace pěstitelské pálenice";
             // 
-            // button1
+            // btnEndPeriod
             // 
-            this.button1.Location = new System.Drawing.Point(100, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Ukončit aktuální měsíční období";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CloseMonthPeriod);
+            this.btnEndPeriod.Location = new System.Drawing.Point(100, 213);
+            this.btnEndPeriod.Name = "btnEndPeriod";
+            this.btnEndPeriod.Size = new System.Drawing.Size(224, 39);
+            this.btnEndPeriod.TabIndex = 2;
+            this.btnEndPeriod.Text = "Ukončit aktuální měsíční období";
+            this.btnEndPeriod.UseVisualStyleBackColor = true;
+            this.btnEndPeriod.Click += new System.EventHandler(this.CloseMonthPeriod);
             // 
-            // button2
+            // btnStartPeriod
             // 
-            this.button2.Location = new System.Drawing.Point(100, 213);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(224, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Vytvořit nové měsíční období";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.NewMonthPeriod);
+            this.btnStartPeriod.Location = new System.Drawing.Point(100, 303);
+            this.btnStartPeriod.Name = "btnStartPeriod";
+            this.btnStartPeriod.Size = new System.Drawing.Size(224, 39);
+            this.btnStartPeriod.TabIndex = 3;
+            this.btnStartPeriod.Text = "Vytvořit nové měsíční období";
+            this.btnStartPeriod.UseVisualStyleBackColor = true;
+            this.btnStartPeriod.Click += new System.EventHandler(this.NewMonthPeriod);
             // 
-            // button3
+            // btnStartSeason
             // 
-            this.button3.Location = new System.Drawing.Point(100, 258);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(224, 39);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Vytvořit novou sezónu";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnStartSeason.Location = new System.Drawing.Point(100, 258);
+            this.btnStartSeason.Name = "btnStartSeason";
+            this.btnStartSeason.Size = new System.Drawing.Size(224, 39);
+            this.btnStartSeason.TabIndex = 4;
+            this.btnStartSeason.Text = "Vytvořit novou sezónu";
+            this.btnStartSeason.UseVisualStyleBackColor = true;
+            this.btnStartSeason.Click += new System.EventHandler(this.NewSeason);
             // 
             // AdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(431, 335);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(431, 356);
+            this.Controls.Add(this.btnStartSeason);
+            this.Controls.Add(this.btnStartPeriod);
+            this.Controls.Add(this.btnEndPeriod);
             this.Controls.Add(this.actualPeriodTBox);
             this.Controls.Add(this.actualSeasonTBox);
             this.Controls.Add(this.label2);
@@ -144,8 +146,8 @@
         private System.Windows.Forms.TextBox actualSeasonTBox;
         private System.Windows.Forms.TextBox actualPeriodTBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEndPeriod;
+        private System.Windows.Forms.Button btnStartPeriod;
+        private System.Windows.Forms.Button btnStartSeason;
     }
 }

@@ -58,6 +58,7 @@
             this.distillationGridView.AllowUserToAddRows = false;
             this.distillationGridView.AllowUserToDeleteRows = false;
             this.distillationGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.distillationGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.distillationGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.distillationGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.distillationGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

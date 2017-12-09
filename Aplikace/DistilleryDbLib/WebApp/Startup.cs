@@ -11,13 +11,13 @@ namespace WebApp
         {
             Configuration = configuration;
 
-            DistilleryLogic.Configuration.SetDbConnection(
-                DataLayerNetCore.DBType.XmlDatabase,
-                @"C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
-
             //DistilleryLogic.Configuration.SetDbConnection(
-            //    DataLayerNetCore.DBType.SqlServer,
-            //    @"data source = dbsys.cs.vsb.cz\STUDENT; initial catalog = mor0146; user id = mor0146; password = Wt0pEzMOWp");
+            //    DataLayerNetCore.DBType.XmlDatabase,
+            //    @"C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
+
+            DistilleryLogic.Configuration.SetDbConnection(
+                DataLayerNetCore.DBType.SqlServer,
+                @"data source = dbsys.cs.vsb.cz\STUDENT; initial catalog = mor0146; user id = mor0146; password = Wt0pEzMOWp");
         }
 
         public IConfiguration Configuration { get; }

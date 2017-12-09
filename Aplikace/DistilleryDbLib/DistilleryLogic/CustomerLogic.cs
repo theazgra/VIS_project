@@ -107,8 +107,7 @@ namespace DistilleryLogic
 
                 db.Insert(newCustomer);
 
-
-                return newCustomer;
+                return db.SelectAll(new Customer()).Where(c => c.Password == newCustomer.Password && c.Login == newCustomer.Login).Single();
             }
             catch (Exception e)
             {
