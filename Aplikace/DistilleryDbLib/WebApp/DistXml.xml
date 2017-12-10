@@ -132,25 +132,6 @@
   </Reservation_set>
   <Customer_set>
     <Customer>
-      <Id>0</Id>
-      <Name>Lukáš</Name>
-      <Surename>Moravecek</Surename>
-      <PersonalNumber>960509/4961</PersonalNumber>
-      <Phone>884545452</Phone>
-      <Email>
-      </Email>
-      <DistilledVolume>0</DistilledVolume>
-      <RegistrationDate>07.12.2017 12:39:52</RegistrationDate>
-      <Note>
-      </Note>
-      <Street>Strahovice 157</Street>
-      <HouseNumber>Strahovice 157</HouseNumber>
-      <City_Id>1</City_Id>
-      <Login>lukas</Login>
-      <Password>c7uEwx0r9b4DCjnCOr86xxSlFZ8kA235biPztINLduaZKjS0</Password>
-      <UserLevel>3</UserLevel>
-    </Customer>
-    <Customer>
       <Id>2</Id>
       <Name>test1</Name>
       <Surename>test2</Surename>
@@ -194,7 +175,7 @@
       <PersonalNumber>960509/5852</PersonalNumber>
       <Phone>5656688898</Phone>
       <Email>eliska@hriv.cz</Email>
-      <DistilledVolume>6,25</DistilledVolume>
+      <DistilledVolume>0</DistilledVolume>
       <RegistrationDate>07.12.2017 12:37:41</RegistrationDate>
       <Note>
       </Note>
@@ -205,16 +186,43 @@
       <Password>dK0qTkW39fn0jqF1Jl6udNWqO5yCgebKOgZ24lM/S1WaaZxX</Password>
       <UserLevel>3</UserLevel>
     </Customer>
+    <Customer>
+      <Id>0</Id>
+      <Name>Lukáš</Name>
+      <Surename>Moravecek</Surename>
+      <PersonalNumber>960509/4961</PersonalNumber>
+      <Phone>884545452</Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>47,6</DistilledVolume>
+      <RegistrationDate>07.12.2017 12:39:52</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>Strahovice 157</Street>
+      <HouseNumber>Strahovice 157</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>lukas</Login>
+      <Password>c7uEwx0r9b4DCjnCOr86xxSlFZ8kA235biPztINLduaZKjS0</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
   </Customer_set>
   <Season_set>
     <Season>
       <Id>0</Id>
       <Name>2017/2018</Name>
       <StartDate>09.12.2017 11:53:55</StartDate>
+      <EndDate>10.12.2017 13:12:22</EndDate>
+      <Finished>True</Finished>
+      <DistillationCount>0</DistillationCount>
+    </Season>
+    <Season>
+      <Id>1</Id>
+      <Name>2017/2018_2</Name>
+      <StartDate>30.12.2017 0:00:00</StartDate>
       <EndDate>
       </EndDate>
       <Finished>False</Finished>
-      <DistillationCount>0</DistillationCount>
+      <DistillationCount>1</DistillationCount>
     </Season>
   </Season_set>
   <Period_set>
@@ -222,10 +230,18 @@
       <Id>0</Id>
       <Name>zari 2017</Name>
       <StartDate>09.12.2017 0:00:00</StartDate>
+      <EndDate>10.12.2017 13:12:07</EndDate>
+      <Finished>True</Finished>
+      <Season_Id>0</Season_Id>
+    </Period>
+    <Period>
+      <Id>1</Id>
+      <Name>zari_v3</Name>
+      <StartDate>10.12.2017 0:00:00</StartDate>
       <EndDate>
       </EndDate>
       <Finished>False</Finished>
-      <Season_Id>0</Season_Id>
+      <Season_Id>1</Season_Id>
     </Period>
   </Period_set>
   <Distillation_set>
@@ -244,6 +260,22 @@
       <Material_Id>0</Material_Id>
       <Season_Id>0</Season_Id>
       <Period_Id>0</Period_Id>
+    </Distillation>
+    <Distillation>
+      <Id>1</Id>
+      <Date>10.12.2017 0:00:00</Date>
+      <StartTime>10.12.2017 13:12:44</StartTime>
+      <EndTime>10.12.2017 13:13:11</EndTime>
+      <Amount>12</Amount>
+      <EthanolPercentage>56</EthanolPercentage>
+      <DistilledVolume>85</DistilledVolume>
+      <AbsoluteAlcoholVolume>47,6</AbsoluteAlcoholVolume>
+      <Price>6199,9</Price>
+      <Payed>True</Payed>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>1</Material_Id>
+      <Season_Id>1</Season_Id>
+      <Period_Id>1</Period_Id>
     </Distillation>
   </Distillation_set>
 </distillery>

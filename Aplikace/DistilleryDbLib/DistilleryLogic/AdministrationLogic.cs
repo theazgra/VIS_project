@@ -59,7 +59,7 @@ namespace DistilleryLogic
             return period;
         }
 
-        public static Season StartSeason(Season lastSeason)
+        public static Season StartSeason(Season lastSeason, Season newSeason)
         {
             IDatabase db = Configuration.GetDatabase();
 
@@ -71,17 +71,18 @@ namespace DistilleryLogic
                 db.Update(lastSeason);
             }
 
+            IEnumerable<Customer> customers = db.SelectAll(new Customer());
+            foreach (Customer c in customers)
+            {
+                c.DistilledVolume = 0;
+                db.Update(c);
+            }
+
 
             int currentYear = DateTime.Today.Year;
 
-            Season newSeason = new Season
-            {
-                Name = currentYear.ToString() + "/" + (currentYear + 1).ToString(),
-                StartDate = DateTime.Now,
-                Finished = false,
-                DistillationCount = 0,
-
-            };
+            newSeason.Finished = false;
+            newSeason.DistillationCount = 0;
 
             db.Insert(newSeason);
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using DataLayerNetCore.Entities;
 using System.Windows.Forms;
-using WinFormApp.Forms.DialogForms;
 using DistilleryLogic;
 
 namespace WinFormApp.Forms
@@ -16,7 +15,10 @@ namespace WinFormApp.Forms
                 Close();
 
             _loggedUser = user;
+
             InitializeComponent();
+
+            miAdmin.Enabled = _loggedUser.UserLevel == UserInfo.Administrator;
         }
 
         private void CustomersMIClick(object sender, EventArgs e)

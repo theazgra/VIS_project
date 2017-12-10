@@ -139,3 +139,4 @@ C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\b
 C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\obj\Debug\WinFormApp.Forms.DialogForms.LoginForm.resources
 C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\obj\Debug\WinFormApp.Forms.NewDistillationForm.resources
 C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WinFormApp\obj\Debug\WinFormApp.Forms.DialogForms.NewSeasonForm.resources

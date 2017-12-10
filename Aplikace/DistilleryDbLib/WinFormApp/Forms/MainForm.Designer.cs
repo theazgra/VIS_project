@@ -37,7 +37,7 @@
             this.číselníkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.číselníkKrajůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.číselníkMateriálůToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.administraceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.oknaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeMdiChildsMI = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -51,7 +51,7 @@
             this.přehledPáleníToolStripMenuItem,
             this.zákaznícíToolStripMenuItem,
             this.číselníkyToolStripMenuItem,
-            this.administraceToolStripMenuItem,
+            this.miAdmin,
             this.oknaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -115,12 +115,12 @@
             this.číselníkMateriálůToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.číselníkMateriálůToolStripMenuItem.Text = "Číselník materiálů";
             // 
-            // administraceToolStripMenuItem
+            // miAdmin
             // 
-            this.administraceToolStripMenuItem.Name = "administraceToolStripMenuItem";
-            this.administraceToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
-            this.administraceToolStripMenuItem.Text = "Administrace";
-            this.administraceToolStripMenuItem.Click += new System.EventHandler(this.administraceToolStripMenuItem_Click);
+            this.miAdmin.Name = "miAdmin";
+            this.miAdmin.Size = new System.Drawing.Size(108, 24);
+            this.miAdmin.Text = "Administrace";
+            this.miAdmin.Click += new System.EventHandler(this.administraceToolStripMenuItem_Click);
             // 
             // oknaToolStripMenuItem
             // 
@@ -161,7 +161,7 @@
         private System.Windows.Forms.ToolStripMenuItem novýZáznamPáleníToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem přehledPáleníToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem číselníkyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem administraceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miAdmin;
         private System.Windows.Forms.ToolStripMenuItem číselníkMěstToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem číselníkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem číselníkKrajůToolStripMenuItem;

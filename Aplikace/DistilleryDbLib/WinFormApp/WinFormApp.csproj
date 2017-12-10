@@ -79,6 +79,12 @@
     <Compile Include="Forms\DialogForms\NewCustomerForm.Designer.cs">
       <DependentUpon>NewCustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DialogForms\NewSeasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogForms\NewSeasonForm.Designer.cs">
+      <DependentUpon>NewSeasonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewDistillationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DialogForms\NewCustomerForm.resx">
       <DependentUpon>NewCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DialogForms\NewSeasonForm.resx">
+      <DependentUpon>NewSeasonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewDistillationForm.resx">
       <DependentUpon>NewDistillationForm.cs</DependentUpon>

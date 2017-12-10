@@ -54,12 +54,20 @@ namespace WinFormApp.Forms
         {
             if (customer != null)
             {
+                double limit = 30 - customer.DistilledVolume;
+                if (limit <= 0)
+                {
+                    MessageBox.Show("Zákazník překročil limit!", "Upozornění", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                }
                 _distillation.Customer = customer;
                 _distillation.Customer_Id = customer.Id;
 
                 tbName.Text = customer.Name;
                 tbSurename.Text = customer.Surename;
-                tbLaaLimit.Text = (30 - customer.DistilledVolume).ToString();
+                tbLaaLimit.Text = (limit).ToString();
+
+                MessageBox.Show("Zákazník může ještě vypálit " + tbLaaLimit.Text + " L.A.A. .", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -129,7 +137,7 @@ namespace WinFormApp.Forms
                 CustomerLogic.UpdateCustomer(_distillation.Customer);
 
 
-                MessageBox.Show("Pálení bylo zapsáno", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pálení bylo zapsáno. Cena je " + _distillation.Price.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else

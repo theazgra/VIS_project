@@ -19,7 +19,7 @@ namespace WinFormApp.Forms
     {
         private Period _activePeriod;
         private Season _activeSeason;
-
+        
         public AdministrationForm()
         {
             InitializeComponent();
@@ -118,9 +118,15 @@ namespace WinFormApp.Forms
                     return;
                 }
             }
-            _activeSeason = AdministrationLogic.StartSeason(_activeSeason);
 
-            Reload();
+            NewSeasonForm nsf = new NewSeasonForm();
+            if (nsf.ShowDialog() == DialogResult.OK)
+            {
+                _activeSeason = AdministrationLogic.StartSeason(_activeSeason, nsf.NewSeason);
+
+                MessageBox.Show("Nová sezóna je vytvořena.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Reload();
+            }
         }
     }
 }
