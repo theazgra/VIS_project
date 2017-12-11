@@ -11,24 +11,17 @@ namespace DataLayerNetCore.SqlAdapters
                                             "(name, surename, personalNumber, phone, email, registrationDate, note, City_Id, street, houseNumber, login, password, userlevel) " +
                                             "VALUES (@name, @surename, @personalNumber, @phone, @email, @registrationDate, @note, @City_Id, @street, @houseNumber, @login, @password, @userlevel) ";
         private static string SQL_SELECT = "SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, c.registrationDate, c.note, " +
-                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password, c.userlevel " +
+                                            "c.street, c.houseNumber, c.City_Id, c.login, c.password, c.userlevel " +
+                                            "FROM Customer c;";
+        private static string SQL_SELECT_ID ="SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, " +
+                                            "c.registrationDate, c.note, " +
+                                            "c.street, c.houseNumber, c.City_Id, c.login, c.password, c.userlevel " +
                                             "FROM Customer c " +
-                                            "JOIN City city ON city.Id = c.City_Id " + 
-                                            "JOIN District d ON d.Id = city.District_Id " +
-                                            "JOIN Region r ON r.Id = city.Region_Id ";
-        private static string SQL_SELECT_ID ="SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, c.registrationDate, c.note, " +
-                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password, c.userlevel " +
-                                            "FROM Customer c " +
-                                            "JOIN City city ON city.Id = c.City_Id " +
-                                            "JOIN District d ON d.Id = city.District_Id " +
-                                            "JOIN Region r ON r.Id = city.Region_Id " +
                                             "WHERE c.ID = @Id" ;
-        private static string SQL_SELECT_BY_SURENAME = "SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, c.registrationDate, c.note, " +
-                                            "c.street, c.houseNumber, c.City_Id, city.name, city.zipCode, r.Id, r.name, d.Id, d.name, c.login, c.password, c.userlevel " +
+        private static string SQL_SELECT_BY_SURENAME = "SELECT c.Id, c.name, c.surename, c.personalNumber, c.phone, c.email, c.distilledVolume, " +
+                                            "c.registrationDate, c.note, " +
+                                            "c.street, c.houseNumber, c.City_Id, c.login, c.password, c.userlevel " +
                                             "FROM Customer c " +
-                                            "JOIN City city ON city.Id = c.City_Id " +
-                                            "JOIN District d ON d.Id = city.District_Id " +
-                                            "JOIN Region r ON r.Id = city.Region_Id " +
                                             "WHERE c.surename LIKE @surename + '%'";
 
         private static string SQL_UPDATE =  "UPDATE Customer " +
@@ -148,24 +141,7 @@ namespace DataLayerNetCore.SqlAdapters
                 c.Street = reader.GetString(++i);
                 c.HouseNumber = reader.GetString(++i);
                 c.City_Id = reader.GetInt32(++i);
-                c.City = new City
-                {
-                    Id = reader.GetInt32(i),
-                    Name = reader.GetString(++i),
-                    ZipCode = reader.GetString(++i),
-                    Region_Id = reader.GetInt32(++i),
-                    Region = new Region
-                    {
-                        Id = reader.GetInt32(i),
-                        Name = reader.GetString(++i)
-                    },
-                    District_Id = reader.GetInt32(++i),
-                    District = new District
-                    {
-                        Id = reader.GetInt32(i),
-                        Name = reader.GetString(++i)
-                    }
-                };
+
                 c.Login = reader.GetString(++i);
                 c.Password = reader.GetString(++i);
                 c.UserLevel = reader.GetInt32(++i);

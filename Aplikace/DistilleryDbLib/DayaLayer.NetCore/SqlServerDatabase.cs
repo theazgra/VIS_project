@@ -13,6 +13,7 @@ namespace DataLayerNetCore
         public SqlServerDatabase()
         {
             sqlConnection = new SqlConnection();
+            if (connectionString == null) connectionString = DBFactory.configuredConnectionString;
             Connect(connectionString);
         }
 

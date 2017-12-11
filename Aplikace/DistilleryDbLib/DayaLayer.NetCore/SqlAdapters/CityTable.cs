@@ -7,9 +7,9 @@ namespace DataLayerNetCore.SqlAdapters
 {
     public class CityTable
     {
-        private static string SQL_SELECT = "SELECT c.Id, c.name, c.zipCode, d.Id, d.Name, r.Id, r.Name FROM City c JOIN District d ON d.Id = c.District_Id JOIN Region r ON r.Id = c.Region_Id";
-        private static string SQL_SELECT_ID = "SELECT c.Id, c.name, c.zipCode, d.Id, d.Name, r.Id, r.Name FROM City c JOIN District d ON d.Id = c.District_Id JOIN Region r ON r.Id = c.Region_Id WHERE c.Id = @Id";
-        private static string SQL_SELECT_BY_REGION = "SELECT c.Id, c.name, c.zipCode, d.Id, d.Name, r.Id, r.Name FROM City c JOIN District d ON d.Id = c.District_Id JOIN Region r ON r.Id = c.Region_Id WHERE r.Id = @Region_Id";
+        private static string SQL_SELECT = "SELECT c.Id, c.name, c.zipCode, c.District_Id, c.Region_Id FROM City c";
+        private static string SQL_SELECT_ID = "SELECT c.Id, c.name, c.zipCode, c.District_Id, c.Region_Id FROM City c WHERE c.Id = @Id";
+        private static string SQL_SELECT_BY_REGION = "SELECT c.Id, c.name, c.zipCode, c.Distric_Id, c.Region_Id FROM City c WHERE c.Region_Id = @Region_Id";
         private static string SQL_INSERT = "INSERT INTO City (name, zipCode, District_Id, Region_Id) VALUES (@name, @zipCode, @District_Id, @Region_Id)";
         private static string SQL_DELETE = "DELETE FROM City WHERE Id = @Id";
         private static string SQL_UPDATE = "UPDATE City SET name = @name, zipCode = @zipCode, District_Id = @District_Id, Region_Id = @Region_Id WHERE Id = @Id";
@@ -111,17 +111,7 @@ namespace DataLayerNetCore.SqlAdapters
                     Name = reader.GetString(++i),
                     ZipCode = reader.GetString(++i),
                     District_Id = reader.GetInt32(++i),
-                    District = new District
-                    {
-                        Id = reader.GetInt32(i),
-                        Name = reader.GetString(++i)
-                    },
-                    Region_Id = reader.GetInt32(++i),
-                    Region = new Region
-                    {
-                        Id = reader.GetInt32(i),
-                        Name = reader.GetString(++i)
-                    }
+                    Region_Id = reader.GetInt32(++i)
                 };
                 cities.Add(c);
             }

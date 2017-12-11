@@ -11,9 +11,11 @@ namespace WebApp
         {
             Configuration = configuration;
 
+            string path =  System.IO.Path.GetFullPath("../DistXml.xml");
+
             DistilleryLogic.Configuration.SetDbConnection(
                 DataLayerNetCore.DBType.XmlDatabase,
-                @"C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
+                path);
 
             //DistilleryLogic.Configuration.SetDbConnection(
             //    DataLayerNetCore.DBType.SqlServer,

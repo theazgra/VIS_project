@@ -9,15 +9,15 @@ namespace DataLayerNetCore.SqlAdapters
     public class PeriodTable
     {
         private static string SQL_SELECT = 
-            "SELECT p.Id, p.name, p.startDate, p.endDate, p.finished, p.Season_Id, s.name, s.startDate, s.endDate, s.finished, s.distillationCount "+
-            "FROM Period p JOIN Season s ON s.Id = p.Season_Id;";
+            "SELECT p.Id, p.name, p.startDate, p.endDate, p.finished, p.Season_Id "+
+            "FROM Period p;";
         private static string SQL_SELECT_ID =
-            "SELECT p.Id, p.name, p.startDate, p.endDate, p.finished, p.Season_Id, s.name, s.startDate, s.endDate, s.finished, s.distillationCount " +
-            "FROM Period p JOIN Season s ON s.Id = p.Season_Id " +
+            "SELECT p.Id, p.name, p.startDate, p.endDate, p.finished, p.Season_Id " +
+            "FROM Period p " +
             "WHERE p.Id = @Id;";
         private static string SQL_SELECT_FINISHED =
-            "SELECT p.Id, p.name, p.startDate, p.endDate, p.finished, p.Season_Id, s.name, s.startDate, s.endDate, s.finished, s.distillationCount " +
-            "FROM Period p JOIN Season s ON s.Id = p.Season_Id " +
+            "SELECT p.Id, p.name, p.startDate, p.endDate, p.finished, p.Season_Id " +
+            "FROM Period p " +
             "WHERE p.finished = @finished;";
         private static string SQL_INSERT = "INSERT INTO Period (name, startDate, Season_Id, endDate, finished) VALUES (@name, @startDate, @Season_Id, @endDate, @finished);";
         private static string SQL_DELETE = "DELETE FROM Period WHERE Id = @Id";
@@ -172,7 +172,7 @@ namespace DataLayerNetCore.SqlAdapters
             {
                 int i = -1;
                 Period p = new Period();
-                Season s = new Season();
+
                 p.Id = reader.GetInt32(++i);
                 p.Name = reader.GetString(++i);
                 p.StartDate = reader.GetDateTime(++i);
@@ -182,17 +182,6 @@ namespace DataLayerNetCore.SqlAdapters
                 }
                 p.Finished = reader.GetBoolean(++i);
                 p.Season_Id = reader.GetInt32(++i);
-
-                s.Id = reader.GetInt32(i);
-                s.Name = reader.GetString(++i);
-                s.StartDate = reader.GetDateTime(++i);
-                if (!reader.IsDBNull(++i))
-                {
-                    s.EndDate = reader.GetDateTime(i);
-                }
-                s.Finished = reader.GetBoolean(++i);
-                s.DistillationCount = reader.GetInt32(++i);
-                p.Season = s;
 
                 periods.Add(p);
             }

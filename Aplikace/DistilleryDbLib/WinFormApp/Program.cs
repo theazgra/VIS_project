@@ -14,9 +14,10 @@ namespace WinFormApp
         [STAThread]
         static void Main()
         {
+            string path = System.IO.Path.GetFullPath("../../../DistXml.xml");
             Configuration.SetDbConnection(
                 DataLayerNetCore.DBType.XmlDatabase,
-                @"C:\Users\Vojtěch\Source\Repos\VIS_projekt\Aplikace\DistilleryDbLib\WebApp\DistXml.xml");
+                path);
 
             //Configuration.SetDbConnection(
             //    DataLayerNetCore.DBType.SqlServer,

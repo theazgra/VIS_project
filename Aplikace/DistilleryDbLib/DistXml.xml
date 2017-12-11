@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<distillery>
+  <District_set>
+    <District>
+      <Id>0</Id>
+      <Name>Opava</Name>
+    </District>
+    <District>
+      <Id>1</Id>
+      <Name>Ostrava</Name>
+    </District>
+  </District_set>
+  <Region_set>
+    <Region>
+      <Id>0</Id>
+      <Name>MSK</Name>
+    </Region>
+    <Region>
+      <Id>1</Id>
+      <Name>Praha</Name>
+    </Region>
+  </Region_set>
+  <City_set>
+    <City>
+      <Id>0</Id>
+      <Name>hnevosice</Name>
+      <ZipCode>74735</ZipCode>
+      <District_Id>1</District_Id>
+      <Region_Id>1</Region_Id>
+    </City>
+    <City>
+      <Id>1</Id>
+      <Name>Strahovice</Name>
+      <ZipCode>74724</ZipCode>
+      <District_Id>1</District_Id>
+      <Region_Id>1</Region_Id>
+    </City>
+  </City_set>
+  <UserInfo_set>
+    <UserInfo>
+      <Id>0</Id>
+      <Login>admin</Login>
+      <Password>ZDq9OmSKy25fp7d4tqofcoP28viHTx+iLGVxgaKIi32CHsZO</Password>
+      <UserLevel>1</UserLevel>
+    </UserInfo>
+    <UserInfo>
+      <Id>1</Id>
+      <Login>zamestnanec1</Login>
+      <Password>xnBT5ewDF5vup0NcKG3UqG4Gt4dnfG6iUSrRZMrY3tw5smAj</Password>
+      <UserLevel>2</UserLevel>
+    </UserInfo>
+  </UserInfo_set>
+  <Material_set>
+    <Material>
+      <Id>0</Id>
+      <Name>Hruška</Name>
+    </Material>
+    <Material>
+      <Id>1</Id>
+      <Name>Švestka</Name>
+    </Material>
+    <Material>
+      <Id>2</Id>
+      <Name>Jablko</Name>
+    </Material>
+    <Material>
+      <Id>3</Id>
+      <Name>Meruňka</Name>
+    </Material>
+    <Material>
+      <Id>4</Id>
+      <Name>Třešeň</Name>
+    </Material>
+  </Material_set>
+  <Reservation_set>
+    <Reservation>
+      <Id>0</Id>
+      <MaterialAmount>25</MaterialAmount>
+      <RequestedDateTime>15.12.2017 12:37:54</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:38:07</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>0</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>1</Id>
+      <MaterialAmount>25</MaterialAmount>
+      <RequestedDateTime>22.12.2017 12:38:39</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:38:47</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>2</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>2</Id>
+      <MaterialAmount>350</MaterialAmount>
+      <RequestedDateTime>15.12.2017 18:38:52</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:39:01</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>3</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>3</Id>
+      <MaterialAmount>5</MaterialAmount>
+      <RequestedDateTime>13.12.2017 12:39:06</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:39:16</ReservationDateTime>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>2</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>4</Id>
+      <MaterialAmount>13</MaterialAmount>
+      <RequestedDateTime>14.12.2017 12:40:00</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:40:09</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>2</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>5</Id>
+      <MaterialAmount>20</MaterialAmount>
+      <RequestedDateTime>22.12.2017 14:40:11</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:40:23</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>1</Material_Id>
+    </Reservation>
+    <Reservation>
+      <Id>6</Id>
+      <MaterialAmount>5</MaterialAmount>
+      <RequestedDateTime>07.12.2017 12:59:28</RequestedDateTime>
+      <ReservationDateTime>07.12.2017 12:40:46</ReservationDateTime>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>1</Material_Id>
+    </Reservation>
+  </Reservation_set>
+  <Customer_set>
+    <Customer>
+      <Id>2</Id>
+      <Name>test1</Name>
+      <Surename>test2</Surename>
+      <PersonalNumber>960509/5951</PersonalNumber>
+      <Phone>123456789</Phone>
+      <Email>vojta@dist.com</Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>08.12.2017 10:38:14</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>Mirna</Street>
+      <HouseNumber>45</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>testik</Login>
+      <Password>L30eSaMEpNtaMtoR3RXJwDC1YSpJPKf8w68AijEzKV07pUkj</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>3</Id>
+      <Name>Martin</Name>
+      <Surename>Moravec</Surename>
+      <PersonalNumber>960509/7931</PersonalNumber>
+      <Phone>255456789</Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>09.12.2017 12:02:18</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>ulice</Street>
+      <HouseNumber>552</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>martin</Login>
+      <Password>WjOusUG7UvMgTtzrQVdFRpQkC+3a+7ueRUUVc/2Nsf7mDtCZ</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>1</Id>
+      <Name>eliska</Name>
+      <Surename>moravec</Surename>
+      <PersonalNumber>960509/5852</PersonalNumber>
+      <Phone>5656688898</Phone>
+      <Email>eliska@hriv.cz</Email>
+      <DistilledVolume>0</DistilledVolume>
+      <RegistrationDate>07.12.2017 12:37:41</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>1. maje </Street>
+      <HouseNumber>189</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>eliska</Login>
+      <Password>dK0qTkW39fn0jqF1Jl6udNWqO5yCgebKOgZ24lM/S1WaaZxX</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+    <Customer>
+      <Id>0</Id>
+      <Name>Lukáš</Name>
+      <Surename>Moravecek</Surename>
+      <PersonalNumber>960509/4961</PersonalNumber>
+      <Phone>884545452</Phone>
+      <Email>
+      </Email>
+      <DistilledVolume>47,6</DistilledVolume>
+      <RegistrationDate>07.12.2017 12:39:52</RegistrationDate>
+      <Note>
+      </Note>
+      <Street>Strahovice 157</Street>
+      <HouseNumber>Strahovice 157</HouseNumber>
+      <City_Id>1</City_Id>
+      <Login>lukas</Login>
+      <Password>c7uEwx0r9b4DCjnCOr86xxSlFZ8kA235biPztINLduaZKjS0</Password>
+      <UserLevel>3</UserLevel>
+    </Customer>
+  </Customer_set>
+  <Season_set>
+    <Season>
+      <Id>0</Id>
+      <Name>2017/2018</Name>
+      <StartDate>09.12.2017 11:53:55</StartDate>
+      <EndDate>10.12.2017 13:12:22</EndDate>
+      <Finished>True</Finished>
+      <DistillationCount>0</DistillationCount>
+    </Season>
+    <Season>
+      <Id>1</Id>
+      <Name>2017/2018_2</Name>
+      <StartDate>30.12.2017 0:00:00</StartDate>
+      <EndDate>
+      </EndDate>
+      <Finished>False</Finished>
+      <DistillationCount>1</DistillationCount>
+    </Season>
+  </Season_set>
+  <Period_set>
+    <Period>
+      <Id>0</Id>
+      <Name>zari 2017</Name>
+      <StartDate>09.12.2017 0:00:00</StartDate>
+      <EndDate>10.12.2017 13:12:07</EndDate>
+      <Finished>True</Finished>
+      <Season_Id>0</Season_Id>
+    </Period>
+    <Period>
+      <Id>1</Id>
+      <Name>zari_v3</Name>
+      <StartDate>10.12.2017 0:00:00</StartDate>
+      <EndDate>
+      </EndDate>
+      <Finished>False</Finished>
+      <Season_Id>1</Season_Id>
+    </Period>
+  </Period_set>
+  <Distillation_set>
+    <Distillation>
+      <Id>0</Id>
+      <Date>09.12.2017 0:00:00</Date>
+      <StartTime>09.12.2017 12:18:21</StartTime>
+      <EndTime>09.12.2017 12:18:39</EndTime>
+      <Amount>25</Amount>
+      <EthanolPercentage>25</EthanolPercentage>
+      <DistilledVolume>25</DistilledVolume>
+      <AbsoluteAlcoholVolume>6,25</AbsoluteAlcoholVolume>
+      <Price>814,0625</Price>
+      <Payed>True</Payed>
+      <Customer_Id>1</Customer_Id>
+      <Material_Id>0</Material_Id>
+      <Season_Id>0</Season_Id>
+      <Period_Id>0</Period_Id>
+    </Distillation>
+    <Distillation>
+      <Id>1</Id>
+      <Date>10.12.2017 0:00:00</Date>
+      <StartTime>10.12.2017 13:12:44</StartTime>
+      <EndTime>10.12.2017 13:13:11</EndTime>
+      <Amount>12</Amount>
+      <EthanolPercentage>56</EthanolPercentage>
+      <DistilledVolume>85</DistilledVolume>
+      <AbsoluteAlcoholVolume>47,6</AbsoluteAlcoholVolume>
+      <Price>6199,9</Price>
+      <Payed>True</Payed>
+      <Customer_Id>0</Customer_Id>
+      <Material_Id>1</Material_Id>
+      <Season_Id>1</Season_Id>
+      <Period_Id>1</Period_Id>
+    </Distillation>
+  </Distillation_set>
+</distillery>
