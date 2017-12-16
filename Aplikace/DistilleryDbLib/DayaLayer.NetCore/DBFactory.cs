@@ -1,8 +1,4 @@
-﻿using DataLayerNetCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using DataLayerNetCore.Xml;
+﻿using DataLayerNetCore.Xml;
 
 namespace DataLayerNetCore
 {
@@ -35,7 +31,5 @@ namespace DataLayerNetCore
             return null;
         }
     }
-
-
 }
 

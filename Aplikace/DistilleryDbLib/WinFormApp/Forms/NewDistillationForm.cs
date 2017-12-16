@@ -137,7 +137,7 @@ namespace WinFormApp.Forms
                 CustomerLogic.UpdateCustomer(_distillation.Customer);
 
 
-                MessageBox.Show("Pálení bylo zapsáno. Cena je " + _distillation.Price.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pálení bylo zapsáno. Cena je " + _distillation.Price.ToString() + " Kč", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else
